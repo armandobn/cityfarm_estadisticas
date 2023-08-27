@@ -2,6 +2,12 @@
   <br>
   <div class="container">
     <div class="row">
+      <div class="col-10"></div>
+      <div class="col">
+        <a href="https://stream.hivelive.me/donate/misticogama" style="color: #7205ee">Donaciones</a>
+      </div>
+    </div>
+    <div class="row">
       <div class="col">
         <button class="btn btn-primary" @click="calcular()">Calcular</button>
       </div>
