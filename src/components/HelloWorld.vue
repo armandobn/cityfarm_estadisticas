@@ -80,14 +80,14 @@
 
         <div class="row">
           <div class="col">
-            <h3>Tierra Trigo</h3>
+            <h3>Tierra Maiz</h3>
             <div class="form-floating mb-3">
-              <input type="text" v-model="nivel_tierra_trigo" class="form-control" id="floatingInput"
+              <input type="text" v-model="nivel_tierra_maiz" class="form-control" id="floatingInput"
                      placeholder="name@example.com">
               <label for="floatingInput">Nivel</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" v-model="horas_tierra_trigo" class="form-control" id="floatingInput"
+              <input type="text" v-model="horas_tierra_maiz" class="form-control" id="floatingInput"
                      placeholder="name@example.com">
               <label for="floatingInput">Horas</label>
             </div>
@@ -96,14 +96,14 @@
           </div>
           <div class="col">
             <div class="form-floating mb-3">
-              <h3>Tierra Trigo</h3>
+              <h3>Tierra Maiz</h3>
               <div class="form-floating mb-3">
-                <input type="text" v-model="nivel_tierra_trigo_2" class="form-control" id="floatingInput"
+                <input type="text" v-model="nivel_tierra_maiz_2" class="form-control" id="floatingInput"
                        placeholder="name@example.com">
                 <label for="floatingInput">Nivel</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" v-model="horas_tierra_trigo_2" class="form-control" id="floatingInput"
+                <input type="text" v-model="horas_tierra_maiz_2" class="form-control" id="floatingInput"
                        placeholder="name@example.com">
                 <label for="floatingInput">Horas</label>
               </div>
@@ -258,7 +258,7 @@
         <label for=""><h5>Obtenido Tierra Trigo</h5></label><br>
         <label for="">Produccion de Trigo: {{ produccion_trigo + produccion_trigo_2 }} </label><br>
         <label for="">Consume:
-          {{ requerimiento_semilla_trigo_tierra_trigo + requerimiento_semilla_trigo_tierra_trigo_2 }} Trigo</label>
+          {{ requerimiento_semilla_trigo_tierra_trigo + requerimiento_semilla_trigo_tierra_trigo_2 }} Semilla de Trigo</label>
         <br>
         <label for="">Consume: {{ requerimiento_agua_tierra_trigo + requerimiento_agua_tierra_trigo_2 }}
           Agua</label><br>
@@ -266,7 +266,7 @@
         <label for=""><h5>Obtenido Tierra Maiz</h5></label><br>
         <label for="">Produccion de Maiz: {{ produccion_maiz + produccion_maiz_2 }} </label><br>
         <label for="">Consume: {{ requerimiento_semilla_maiz_tierra_maiz + requerimiento_semilla_maiz_tierra_maiz_2 }}
-          Maiz</label> <br>
+          Semilla Maiz</label> <br>
         <label for="">Consume: {{ requerimiento_agua_tierra_maiz + requerimiento_agua_tierra_maiz_2 }}
           Agua</label><br>
 
@@ -510,7 +510,7 @@ const tierra_maiz = {
       produccion: 5,
       tiempo: 48,
       requerimiento: {
-        semilla_maiz: 2,
+        semilla_maiz: 1,
         agua: 4,
 
       },
@@ -769,6 +769,8 @@ function calcular() {
   produccion_maiz.value = (horas_tierra_maiz.value <= 0) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.produccion)
   requerimiento_semilla_maiz_tierra_maiz.value = (horas_tierra_maiz.value <= 0) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.requerimiento.semilla_maiz)
   requerimiento_agua_tierra_maiz.value = (horas_tierra_maiz.value <= 0) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.requerimiento.agua)
+
+  console.log(requerimiento_semilla_maiz_tierra_maiz.value,maiz);
 
   let maiz_2 = tierra_maiz.nivel[nivel_tierra_maiz_2.value];
   produccion_maiz_2.value = (horas_tierra_maiz_2.value <= 0) ? 0 : parseFloat(horas_tierra_maiz_2.value) / (maiz_2.tiempo / maiz_2.produccion)
