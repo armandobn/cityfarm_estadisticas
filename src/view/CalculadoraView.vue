@@ -953,13 +953,13 @@ function restar(a, b) {
 
 body {
   /*background: #a18262 !important;*/
-  background: url('assets/liso.png') repeat;
+  background: url('../assets/liso.png') repeat;
   background-clip: padding-box;
   background-origin: initial;
   background-position: 50%;
   border-image-repeat: repeat;
   border-image-slice: 8 8 8 8;
-  border-image-source: url('assets/detalle.png');
+  border-image-source: url('../assets/detalle.png');
   border-image-width: 18px;
   border-style: solid;
   border-width: 15px;
@@ -975,13 +975,13 @@ body {
 }
 
 .caja-cafe{
-  background: url('assets/cafe.png') repeat;
+  background: url('../assets/cafe.png') repeat;
   background-clip: padding-box;
   background-origin: initial;
   background-position: 50%;
   border-image-repeat: repeat;
   border-image-slice: 4 4 4 4;
-  border-image-source: url('assets/cafeBorde.png');
+  border-image-source: url('../assets/cafeBorde.png');
   border-image-width: 18px;
   border-style: solid;
   border-width: 15px;
@@ -992,13 +992,13 @@ body {
 }
 
 .relleno-cafe{
-  background-image: url('assets/liso.png'); /* Reemplaza con la ruta de tu imagen */
+  background-image: url('../assets/liso.png'); /* Reemplaza con la ruta de tu imagen */
   background-repeat: repeat;
   background-size: auto;
 }
 
 .btn-with-background {
-  background-image: url('assets/button.png');
+  background-image: url('../assets/button.png');
   background-size: 100% 100%;
   background-position: center center;
   text-align: center !important;
