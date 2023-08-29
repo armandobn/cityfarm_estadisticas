@@ -3,18 +3,209 @@
   <div class="container">
     <div class="row">
       <div class="col-10"></div>
-      <div class="col">
-        <a href="https://stream.hivelive.me/donate/misticogama" style="color: #7205ee">Donaciones</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <button class="btn btn-primary" @click="calcular()">Calcular</button>
-      </div>
-    </div>
-    <div class="row">
 
-      <div class="col-6">
+    </div>
+
+    <div class="row">
+      <div class="col-md-4"><button class="btn btn-with-background" @click="calcular()">Calcular</button></div>
+      <div class="col-md-4 ms-auto"><a class=" btn-with-background" href="https://stream.hivelive.me/donate/misticogama" style="color: #7205ee; text-decoration: none;" target="_blank">Donaciones</a>
+      </div>
+    </div>
+
+
+    <h5 class="text-with-shadown">Estadistica</h5>
+    <div class="row  text-with-shadown">
+      <div class="col">
+        <RecursoComponent :src="'assets/energia.png'"
+                          :cantidad="restar(total_energia, consumo_energia)"></RecursoComponent>
+        <RecursoComponent :src="'assets/agua.png'" :cantidad="restar(total_agua, consumo_agua)"></RecursoComponent>
+        <RecursoComponent :src="'assets/madera.png'"
+                          :cantidad="restar(total_madera, consumo_madera)"></RecursoComponent>
+        <RecursoComponent :src="'assets/carbon.png'"
+                          :cantidad="restar(total_carbon, consumo_carbon)"></RecursoComponent>
+      </div>
+      <div class="col">
+        <RecursoComponent :src="'assets/maiz.png'" :cantidad="restar(total_maiz, consumo_maiz)"></RecursoComponent>
+        <RecursoComponent :src="'assets/trigo.png'" :cantidad="restar(total_trigo, consumo_trigo)"></RecursoComponent>
+        <RecursoComponent :src="'assets/bolsa_maiz.png'"
+                          :cantidad="restar(total_bolsa_maiz, consumo_bolsa_maiz)"></RecursoComponent>
+        <RecursoComponent :src="'assets/bolsa_trigo.png'"
+                          :cantidad="restar(total_bolsa_trigo, consumo_bolsa_trigo)"></RecursoComponent>
+      </div>
+      <div class="col">
+        <RecursoComponent :src="'assets/leche.png'" :cantidad="total_leche"></RecursoComponent>
+        <RecursoComponent :src="'assets/huevo.png'" :cantidad="total_huevo"></RecursoComponent>
+        <RecursoComponent :src="'assets/kod.png'" :cantidad="total_kod"></RecursoComponent>
+        <RecursoComponent :src="'assets/hueso.png'" :cantidad="total_hueso"></RecursoComponent>
+      </div>
+    </div>
+
+    <div class="row  text-with-shadown">
+      <div class="col">
+        <p>
+
+          <button class="btn btn-with-background" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample">
+            Produccion Total
+          </button>
+          <button class="btn btn-with-background" data-bs-toggle="collapse" href="#collapseObtenido" role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample">
+            Obtencion Invidividual
+          </button>
+
+        </p>
+        <div class="collapse caja-cafe" id="collapseExample">
+          <div class="card card-body relleno-cafe">
+            <div class="row">
+              <div class="col">
+                <h5>Produccion Total</h5>
+                <div class="row">
+                  <div class="col">
+                    <RecursoComponent :src="'assets/energia.png'" :cantidad="total_energia"></RecursoComponent>
+                    <RecursoComponent :src="'assets/agua.png'" :cantidad="total_agua"></RecursoComponent>
+                    <RecursoComponent :src="'assets/madera.png'" :cantidad="total_madera"></RecursoComponent>
+                    <RecursoComponent :src="'assets/carbon.png'" :cantidad="total_carbon"></RecursoComponent>
+                  </div>
+                  <div class="col">
+                    <RecursoComponent :src="'assets/maiz.png'" :cantidad="total_maiz"></RecursoComponent>
+                    <RecursoComponent :src="'assets/trigo.png'" :cantidad="total_trigo"></RecursoComponent>
+                    <RecursoComponent :src="'assets/bolsa_maiz.png'" :cantidad="total_bolsa_maiz"></RecursoComponent>
+                    <RecursoComponent :src="'assets/bolsa_trigo.png'" :cantidad="total_bolsa_trigo"></RecursoComponent>
+                  </div>
+                  <div class="col">
+                    <RecursoComponent :src="'assets/leche.png'" :cantidad="total_leche"></RecursoComponent>
+                    <RecursoComponent :src="'assets/huevo.png'" :cantidad="total_huevo"></RecursoComponent>
+                    <RecursoComponent :src="'assets/kod.png'" :cantidad="total_kod"></RecursoComponent>
+                    <RecursoComponent :src="'assets/hueso.png'" :cantidad="total_hueso"></RecursoComponent>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col">
+                <h5>Consumo Total</h5>
+                <div class="row">
+                  <div class="col">
+                    <RecursoComponent :src="'assets/energia.png'" :cantidad="consumo_energia"></RecursoComponent>
+                    <RecursoComponent :src="'assets/agua.png'" :cantidad="consumo_agua"></RecursoComponent>
+                    <RecursoComponent :src="'assets/carbon.png'" :cantidad="consumo_carbon"></RecursoComponent>
+
+                  </div>
+                  <div class="col">
+                    <RecursoComponent :src="'assets/maiz.png'" :cantidad="consumo_semilla_maiz"></RecursoComponent>
+                    <RecursoComponent :src="'assets/trigo.png'" :cantidad="consumo_semilla_trigo"></RecursoComponent>
+                    <RecursoComponent :src="'assets/bolsa_maiz.png'" :cantidad="consumo_bolsa_trigo"></RecursoComponent>
+                    <RecursoComponent :src="'assets/bolsa_trigo.png'" :cantidad="consumo_bolsa_maiz"></RecursoComponent>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="collapse caja-cafe" id="collapseObtenido">
+          <div class="card card-body relleno-cafe ">
+            <div class="row">
+              <h3>Obtencion Individual</h3>
+
+              <div class="row">
+                <div class="col-3">
+                  <ObtencionRecursoComponent :titulo="'Pozo de Agua'" :src-produccion="'assets/agua.png'"
+                                             :src-consume="'assets/energia.png'" :produccion="produccion_agua"
+                                             :consume="requerimiento_energia_pozo"></ObtencionRecursoComponent>
+                </div>
+                <div class="col-3">
+                  <ObtencionRecursoComponent :titulo="'Fabrica Energia'" :src-produccion="'assets/energia.png'"
+                                             :src-consume="'assets/carbon.png'" :produccion="produccion_energia"
+                                             :consume="requerimiento_carbon_fabrica"></ObtencionRecursoComponent>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-3">
+                  <ObtencionRecursoComponent :titulo="'Tierra Trigo'"
+                                             :src-produccion="'assets/trigo.png'" :src-consume="'assets/agua.png'"
+                                             :produccion=" produccion_trigo + produccion_trigo_2"
+                                             :consume="requerimiento_agua_tierra_trigo + requerimiento_agua_tierra_trigo_2"
+                                             :otro-rercuso="true"
+                                             :consume2="requerimiento_semilla_trigo_tierra_trigo + requerimiento_semilla_trigo_tierra_trigo_2"
+                                             :src-consume2="'assets/semilla_trigo.png'"></ObtencionRecursoComponent>
+                </div>
+                <div class="col-3">
+                  <ObtencionRecursoComponent :titulo="'Tierra Maiz'"
+                                             :src-produccion="'assets/maiz.png'" :src-consume="'assets/agua.png'"
+                                             :produccion="  produccion_maiz + produccion_maiz_2"
+                                             :consume="requerimiento_agua_tierra_maiz + requerimiento_agua_tierra_maiz_2"
+                                             :otro-rercuso="true"
+                                             :consume2=" requerimiento_semilla_maiz_tierra_maiz + requerimiento_semilla_maiz_tierra_maiz_2"
+                                             :src-consume2="'assets/semilla_maiz.png'"></ObtencionRecursoComponent>
+                </div>
+                <div class="col-3">
+                  <ObtencionRecursoComponent :titulo="'Granja Gallina'"
+                                             :src-produccion="'assets/huevo.png'" :src-consume="'assets/agua.png'"
+                                             :produccion=" produccion_huevo"
+                                             :consume="requerimiento_agua_granja_gallina"
+                                             :otro-rercuso="true"
+                                             :consume2=" requerimiento_bolsa_maiz_granja_gallina"
+                                             :src-consume2="'assets/bolsa_maiz.png'"></ObtencionRecursoComponent>
+                </div>
+                <div class="col-3">
+                  <ObtencionRecursoComponent :titulo="'Granja Vacas'"
+                                             :src-produccion="'assets/leche.png'" :src-consume="'assets/agua.png'"
+                                             :produccion=" produccion_leche"
+                                             :consume="requerimiento_agua_granja_vaca"
+                                             :otro-rercuso="true"
+                                             :consume2=" requerimiento_bolsa_trigo_granja_vaca"
+                                             :src-consume2="'assets/bolsa_trigo.png'"></ObtencionRecursoComponent>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-3">
+                  <ObtencionRecursoComponent :titulo="'Molino Arboles'"
+                                             :src-produccion="'assets/madera.png'"
+                                             :produccion=" produccion_madera + produccion_madera_2 + produccion_madera_3"
+                                             :src-consume="'assets/agua.png'"
+                                             :consume="requerimiento_agua_arboles + requerimiento_agua_arboles_2 + requerimiento_agua_arboles_3"
+                                             :otro-rercuso="false"></ObtencionRecursoComponent>
+                </div>
+                <div class="col-3">
+                  <ObtencionRecursoComponent :titulo="'Molino Madera'"
+                                             :src-produccion="'assets/carbon.png'"
+                                             :produccion=" produccion_carbon"
+                                             :src-consume="'assets/madera.png'"
+                                             :consume="molino_cant_madera"
+                                             :otro-rercuso="false"></ObtencionRecursoComponent>
+                </div>
+                <div class="col-3">
+                  <ObtencionRecursoComponent :titulo="'Molino Maiz'"
+                                             :src-produccion="'assets/bolsa_maiz.png'"
+                                             :produccion=" produccion_bolsa_maiz"
+                                             :src-consume="'assets/maiz.png'"
+                                             :consume="molino_cant_maiz"
+                                             :otro-rercuso="false"></ObtencionRecursoComponent>
+                </div>
+                <div class="col-3">
+                  <ObtencionRecursoComponent :titulo="'Molino Trigo'"
+                                             :src-produccion="'assets/bolsa_maiz.png'"
+                                             :produccion=" produccion_bolsa_trigo"
+                                             :src-consume="'assets/trigo.png'"
+                                             :consume="molino_cant_trigo"
+                                             :otro-rercuso="false"></ObtencionRecursoComponent>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
         <div class="row">
           <div class="col">
             <h3>Pozo de Agua</h3>
@@ -245,107 +436,7 @@
         </div>
 
       </div>
-      <div class="col">
 
-        <label for=""><h5>Obtenido Pozo de Agua</h5></label> <br>
-        <label for="">Produccion de Agua: {{ produccion_agua }} </label> <br>
-        <label for="">Consume: {{ requerimiento_energia_pozo }} Energia</label> <br>
-
-        <label for=""><h5>Obtenido Fabrica Energia</h5></label><br>
-        <label for="">Produccion de Energia: {{ produccion_energia }} </label><br>
-        <label for="">Consume: {{ requerimiento_carbon_fabrica }} Carbon</label><br>
-
-        <label for=""><h5>Obtenido Tierra Trigo</h5></label><br>
-        <label for="">Produccion de Trigo: {{ produccion_trigo + produccion_trigo_2 }} </label><br>
-        <label for="">Consume:
-          {{ requerimiento_semilla_trigo_tierra_trigo + requerimiento_semilla_trigo_tierra_trigo_2 }} Semilla de Trigo</label>
-        <br>
-        <label for="">Consume: {{ requerimiento_agua_tierra_trigo + requerimiento_agua_tierra_trigo_2 }}
-          Agua</label><br>
-
-        <label for=""><h5>Obtenido Tierra Maiz</h5></label><br>
-        <label for="">Produccion de Maiz: {{ produccion_maiz + produccion_maiz_2 }} </label><br>
-        <label for="">Consume: {{ requerimiento_semilla_maiz_tierra_maiz + requerimiento_semilla_maiz_tierra_maiz_2 }}
-          Semilla Maiz</label> <br>
-        <label for="">Consume: {{ requerimiento_agua_tierra_maiz + requerimiento_agua_tierra_maiz_2 }}
-          Agua</label><br>
-
-        <label for=""><h5>Obtenido Granja Gallina</h5></label><br>
-        <label for="">Produccion de Huevo: {{ produccion_huevo }} </label><br>
-        <label for="">Consume: {{ requerimiento_bolsa_maiz_granja_gallina }} Bolsa Maiz</label> <br>
-        <label for="">Consume: {{ requerimiento_agua_granja_gallina }} Agua</label><br>
-
-        <label for=""><h5>Obtenido Granja Vacas</h5></label><br>
-        <label for="">Produccion de Huevo: {{ produccion_leche }} </label><br>
-        <label for="">Consume: {{ requerimiento_bolsa_trigo_granja_vaca }} Bolsa Trigo</label> <br>
-        <label for="">Consume: {{ requerimiento_agua_granja_vaca }} Agua</label><br>
-
-        <label for=""><h5>Obtenido Arboles</h5></label><br>
-        <label for="">Produccion de Madera: {{
-            produccion_madera + produccion_madera_2 + produccion_madera_3
-          }} </label><br>
-        <label for="">Consume:
-          {{ requerimiento_agua_arboles + requerimiento_agua_arboles_2 + requerimiento_agua_arboles_3 }}
-          Agua</label><br>
-
-        <label for=""><h5>Molino Madera</h5></label><br>
-        <label for="">Produccion de Carbon: {{ produccion_carbon }} </label><br>
-        <label for="">Consume: {{ molino_cant_madera }} Madera</label><br>
-
-        <label for=""><h5>Molino Maiz</h5></label><br>
-        <label for="">Produccion de Bolsa Maiz: {{ produccion_bolsa_maiz }} </label><br>
-        <label for="">Consume: {{ molino_cant_maiz }} Maiz</label><br>
-
-        <label for=""><h5>Molino Trigo</h5></label><br>
-        <label for="">Produccion de Bolsa Trigo: {{ produccion_bolsa_trigo }} </label><br>
-        <label for="">Consume: {{ molino_cant_trigo }} Trigo</label><br>
-
-        <div class="row">
-          <div class="col">
-            <label for=""><h5>Produccion Total</h5></label><br>
-            <label for="">Energia: {{ total_energia }} </label><br>
-            <label for="">Agua: {{ total_agua }} </label><br>
-            <label for="">Maiz: {{ total_maiz }} </label><br>
-            <label for="">Trigo: {{ total_trigo }} </label><br>
-            <label for="">Bolsa Maiz: {{ total_bolsa_maiz }} </label><br>
-            <label for="">Bolsa Trigo: {{ total_bolsa_trigo }} </label><br>
-            <label for="">Leche: {{ total_leche }} </label><br>
-            <label for="">Huevo: {{ total_huevo }} </label><br>
-            <label for="">Madera: {{ total_madera }} </label><br>
-            <label for="">Carbon: {{ total_carbon }} </label><br>
-            <label for="">KOD: {{ total_kod }} </label><br>
-            <label for="">HUESO: {{ total_hueso }} </label><br>
-
-          </div>
-          <div class="col">
-            <label for=""><h5>Consumo Total</h5></label><br>
-            <label for="">Energia: {{ consumo_energia }} </label><br>
-            <label for="">Agua: {{ consumo_agua }} </label><br>
-            <label for="">Carbon: {{ consumo_carbon }} </label><br>
-            <label for="">Semilla Maiz: {{ consumo_semilla_maiz }} </label><br>
-            <label for="">Semilla Trigo: {{ consumo_semilla_trigo }} </label><br>
-            <label for="">Bolsa Trigo: {{ consumo_bolsa_trigo }} </label><br>
-            <label for="">Bolsa Maiz: {{ consumo_bolsa_maiz }} </label><br>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <label for=""><h5>Estadistica</h5></label><br>
-            <label for="">Energia: {{ restar(total_energia, consumo_energia) }} </label><br>
-            <label for="">Agua: {{ restar(total_agua, consumo_agua) }} </label><br>
-            <label for="">Maiz: {{ restar(total_maiz, consumo_maiz) }} </label><br>
-            <label for="">Trigo: {{ restar(total_trigo, consumo_trigo) }} </label><br>
-            <label for="">Bolsa de Maiz: {{ restar(total_bolsa_maiz, consumo_bolsa_maiz) }} </label><br>
-            <label for="">Bolsa de Trigo: {{ restar(total_bolsa_trigo, consumo_bolsa_trigo) }} </label><br>
-            <label for="">Leche: {{ total_leche }} </label><br>
-            <label for="">Huevo: {{ total_huevo }} </label><br>
-            <label for="">Madera: {{ restar(total_madera, consumo_madera) }} </label><br>
-            <label for="">Carbon: {{ restar(total_carbon, consumo_carbon) }} </label><br>
-            <label for="">KOD: {{ total_kod }} </label><br>
-            <label for="">HUESO: {{ total_hueso }} </label><br>
-          </div>
-        </div>
-      </div>
 
     </div>
   </div>
@@ -355,6 +446,8 @@
 
 <script setup>
 import {ref} from 'vue'
+import RecursoComponent from "../components/RecursoComponent.vue";
+import ObtencionRecursoComponent from "../components/ObtencionRecursoComponent.vue";
 
 const pozo_agua = {
   nivel: {
@@ -653,80 +746,80 @@ const molino = {
 }
 
 
-let nivel_pozo_agua = ref(1);
-let horas_pozo_agua = ref(4);
+let nivel_pozo_agua = ref(0);
+let horas_pozo_agua = ref(0);
 let produccion_agua = ref(0);
 let requerimiento_energia_pozo = ref(0);
 
-let nivel_fabrica_energia = ref(1);
-let horas_fabrica_energia = ref(4);
+let nivel_fabrica_energia = ref(0);
+let horas_fabrica_energia = ref(0);
 let produccion_energia = ref(0);
 let requerimiento_carbon_fabrica = ref(0);
 
-let nivel_tierra_maiz = ref(1);
-let horas_tierra_maiz = ref(48);
+let nivel_tierra_maiz = ref(0);
+let horas_tierra_maiz = ref(0);
 let produccion_maiz = ref(0);
 let requerimiento_semilla_maiz_tierra_maiz = ref(0);
 let requerimiento_agua_tierra_maiz = ref(0);
 
-let nivel_tierra_maiz_2 = ref(1);
-let horas_tierra_maiz_2 = ref(48);
+let nivel_tierra_maiz_2 = ref(0);
+let horas_tierra_maiz_2 = ref(0);
 let produccion_maiz_2 = ref(0);
 let requerimiento_semilla_maiz_tierra_maiz_2 = ref(0);
 let requerimiento_agua_tierra_maiz_2 = ref(0);
 
-let nivel_tierra_trigo = ref(1);
-let horas_tierra_trigo = ref(24);
+let nivel_tierra_trigo = ref(0);
+let horas_tierra_trigo = ref(0);
 let produccion_trigo = ref(0);
 let requerimiento_semilla_trigo_tierra_trigo = ref(0);
 let requerimiento_agua_tierra_trigo = ref(0);
 
-let nivel_tierra_trigo_2 = ref(1);
-let horas_tierra_trigo_2 = ref(24);
+let nivel_tierra_trigo_2 = ref(0);
+let horas_tierra_trigo_2 = ref(0);
 let produccion_trigo_2 = ref(0);
 let requerimiento_semilla_trigo_tierra_trigo_2 = ref(0);
 let requerimiento_agua_tierra_trigo_2 = ref(0);
 
-let nivel_granja_gallina = ref(1);
-let horas_granja_gallina = ref(12);
+let nivel_granja_gallina = ref(0);
+let horas_granja_gallina = ref(0);
 let produccion_huevo = ref(0);
 let requerimiento_bolsa_maiz_granja_gallina = ref(0);
 let requerimiento_agua_granja_gallina = ref(0);
 
-let nivel_granja_vacas = ref(1);
-let horas_granja_vacas = ref(24);
+let nivel_granja_vacas = ref(0);
+let horas_granja_vacas = ref(0);
 let produccion_leche = ref(0);
 let requerimiento_bolsa_trigo_granja_vaca = ref(0);
 let requerimiento_agua_granja_vaca = ref(0);
 
-let nivel_arboles = ref(1);
-let horas_arboles = ref(72);
+let nivel_arboles = ref(0);
+let horas_arboles = ref(0);
 let produccion_madera = ref(0);
 let requerimiento_agua_arboles = ref(0);
 
-let nivel_arboles_2 = ref(1);
-let horas_arboles_2 = ref(72);
+let nivel_arboles_2 = ref(0);
+let horas_arboles_2 = ref(0);
 let produccion_madera_2 = ref(0);
 let requerimiento_agua_arboles_2 = ref(0);
 
-let nivel_arboles_3 = ref(1);
-let horas_arboles_3 = ref(72);
+let nivel_arboles_3 = ref(0);
+let horas_arboles_3 = ref(0);
 let produccion_madera_3 = ref(0);
 let requerimiento_agua_arboles_3 = ref(0);
 
-let molino_cant_madera = ref(2);
+let molino_cant_madera = ref(0);
 let produccion_carbon = ref(0)
 
-let molino_cant_maiz = ref(2);
+let molino_cant_maiz = ref(0);
 let produccion_bolsa_maiz = ref(0)
 
-let molino_cant_trigo = ref(1);
+let molino_cant_trigo = ref(0);
 let produccion_bolsa_trigo = ref(0)
 
-let molino_cant_leche = ref(4);
+let molino_cant_leche = ref(0);
 let produccion_kod = ref(0)
 
-let molino_cant_huevo = ref(4);
+let molino_cant_huevo = ref(0);
 let produccion_hueso = ref(0)
 
 let total_energia = ref(0)
@@ -769,8 +862,6 @@ function calcular() {
   produccion_maiz.value = (horas_tierra_maiz.value <= 0) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.produccion)
   requerimiento_semilla_maiz_tierra_maiz.value = (horas_tierra_maiz.value <= 0) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.requerimiento.semilla_maiz)
   requerimiento_agua_tierra_maiz.value = (horas_tierra_maiz.value <= 0) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.requerimiento.agua)
-
-  console.log(requerimiento_semilla_maiz_tierra_maiz.value,maiz);
 
   let maiz_2 = tierra_maiz.nivel[nivel_tierra_maiz_2.value];
   produccion_maiz_2.value = (horas_tierra_maiz_2.value <= 0) ? 0 : parseFloat(horas_tierra_maiz_2.value) / (maiz_2.tiempo / maiz_2.produccion)
@@ -861,6 +952,77 @@ function restar(a, b) {
 <style>
 
 body {
-  background: #a18262 !important;
+  /*background: #a18262 !important;*/
+  background: url('assets/liso.png') repeat;
+  background-clip: padding-box;
+  background-origin: initial;
+  background-position: 50%;
+  border-image-repeat: repeat;
+  border-image-slice: 8 8 8 8;
+  border-image-source: url('assets/detalle.png');
+  border-image-width: 18px;
+  border-style: solid;
+  border-width: 15px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 12px;
+}
+
+.text-with-shadown{
+  color: white !important;
+  text-shadow: 0px 0px 5px black;
+}
+
+.caja-cafe{
+  background: url('assets/cafe.png') repeat;
+  background-clip: padding-box;
+  background-origin: initial;
+  background-position: 50%;
+  border-image-repeat: repeat;
+  border-image-slice: 4 4 4 4;
+  border-image-source: url('assets/cafeBorde.png');
+  border-image-width: 18px;
+  border-style: solid;
+  border-width: 15px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 12px;
+}
+
+.relleno-cafe{
+  background-image: url('assets/liso.png'); /* Reemplaza con la ruta de tu imagen */
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.btn-with-background {
+  background-image: url('assets/button.png');
+  background-size: 100% 100%;
+  background-position: center center;
+  text-align: center !important;
+  color: white !important;
+  font-weight: bold !important;
+  padding: 1% 3% !important;
+}
+
+.boton-imagen {
+  display: inline-block;
+  position: relative;
+}
+
+.boton-imagen img {
+  display: block;
+  max-width: 100%;
+}
+
+.texto-boton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: white;
 }
 </style>
