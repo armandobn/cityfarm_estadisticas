@@ -17,26 +17,45 @@
     <div class="row  text-with-shadown">
       <div class="col">
         <RecursoComponent :src="'assets/energia.png'"
+                          :width="7"
                           :cantidad="restar(total_energia, consumo_energia)"></RecursoComponent>
-        <RecursoComponent :src="'assets/agua.png'" :cantidad="restar(total_agua, consumo_agua)"></RecursoComponent>
+        <RecursoComponent :src="'assets/agua.png'"
+                          :width="10"
+                          :cantidad="restar(total_agua, consumo_agua)"></RecursoComponent>
         <RecursoComponent :src="'assets/madera.png'"
+                          :width="10"
                           :cantidad="restar(total_madera, consumo_madera)"></RecursoComponent>
         <RecursoComponent :src="'assets/carbon.png'"
+                          :width="10"
                           :cantidad="restar(total_carbon, consumo_carbon)"></RecursoComponent>
       </div>
       <div class="col">
-        <RecursoComponent :src="'assets/maiz.png'" :cantidad="restar(total_maiz, consumo_maiz)"></RecursoComponent>
-        <RecursoComponent :src="'assets/trigo.png'" :cantidad="restar(total_trigo, consumo_trigo)"></RecursoComponent>
+        <RecursoComponent :src="'assets/maiz.png'"
+                          :width="7"
+                          :cantidad="restar(total_maiz, consumo_maiz)"></RecursoComponent>
+        <RecursoComponent :src="'assets/trigo.png'"
+                          :width="7"
+                          :cantidad="restar(total_trigo, consumo_trigo)"></RecursoComponent>
         <RecursoComponent :src="'assets/bolsa_maiz.png'"
+                          :width="9"
                           :cantidad="restar(total_bolsa_maiz, consumo_bolsa_maiz)"></RecursoComponent>
         <RecursoComponent :src="'assets/bolsa_trigo.png'"
+                          :width="8"
                           :cantidad="restar(total_bolsa_trigo, consumo_bolsa_trigo)"></RecursoComponent>
       </div>
       <div class="col">
-        <RecursoComponent :src="'assets/leche.png'" :cantidad="total_leche"></RecursoComponent>
-        <RecursoComponent :src="'assets/huevo.png'" :cantidad="total_huevo"></RecursoComponent>
-        <RecursoComponent :src="'assets/kod.png'" :cantidad="total_kod"></RecursoComponent>
-        <RecursoComponent :src="'assets/hueso.png'" :cantidad="total_hueso"></RecursoComponent>
+        <RecursoComponent :src="'assets/leche.png'"
+                          :width="10"
+                          :cantidad="total_leche"></RecursoComponent>
+        <RecursoComponent :src="'assets/huevo.png'"
+                          :width="10"
+                          :cantidad="total_huevo"></RecursoComponent>
+        <RecursoComponent :src="'assets/kod.png'"
+                          :width="6.5"
+                          :cantidad="total_kod"></RecursoComponent>
+        <RecursoComponent :src="'assets/hueso.png'"
+                          :width="6.5"
+                          :cantidad="total_hueso"></RecursoComponent>
       </div>
     </div>
 
@@ -63,22 +82,46 @@
                 <h5>Produccion Total</h5>
                 <div class="row">
                   <div class="col">
-                    <RecursoComponent :src="'assets/energia.png'" :cantidad="total_energia"></RecursoComponent>
-                    <RecursoComponent :src="'assets/agua.png'" :cantidad="total_agua"></RecursoComponent>
-                    <RecursoComponent :src="'assets/madera.png'" :cantidad="total_madera"></RecursoComponent>
-                    <RecursoComponent :src="'assets/carbon.png'" :cantidad="total_carbon"></RecursoComponent>
+                    <RecursoComponent :src="'assets/energia.png'"
+                                      :width="10"
+                                      :cantidad="total_energia"></RecursoComponent>
+                    <RecursoComponent :src="'assets/agua.png'"
+                                      :width="10"
+                                      :cantidad="total_agua"></RecursoComponent>
+                    <RecursoComponent :src="'assets/madera.png'"
+                                      :width="10"
+                                      :cantidad="total_madera"></RecursoComponent>
+                    <RecursoComponent :src="'assets/carbon.png'"
+                                      :width="10"
+                                      :cantidad="total_carbon"></RecursoComponent>
                   </div>
                   <div class="col">
-                    <RecursoComponent :src="'assets/maiz.png'" :cantidad="total_maiz"></RecursoComponent>
-                    <RecursoComponent :src="'assets/trigo.png'" :cantidad="total_trigo"></RecursoComponent>
-                    <RecursoComponent :src="'assets/bolsa_maiz.png'" :cantidad="total_bolsa_maiz"></RecursoComponent>
-                    <RecursoComponent :src="'assets/bolsa_trigo.png'" :cantidad="total_bolsa_trigo"></RecursoComponent>
+                    <RecursoComponent :src="'assets/maiz.png'"
+                                      :width="10"
+                                      :cantidad="total_maiz"></RecursoComponent>
+                    <RecursoComponent :src="'assets/trigo.png'"
+                                      :width="10"
+                                      :cantidad="total_trigo"></RecursoComponent>
+                    <RecursoComponent :src="'assets/bolsa_maiz.png'"
+                                      :width="10"
+                                      :cantidad="total_bolsa_maiz"></RecursoComponent>
+                    <RecursoComponent :src="'assets/bolsa_trigo.png'"
+                                      :width="10"
+                                      :cantidad="total_bolsa_trigo"></RecursoComponent>
                   </div>
                   <div class="col">
-                    <RecursoComponent :src="'assets/leche.png'" :cantidad="total_leche"></RecursoComponent>
-                    <RecursoComponent :src="'assets/huevo.png'" :cantidad="total_huevo"></RecursoComponent>
-                    <RecursoComponent :src="'assets/kod.png'" :cantidad="total_kod"></RecursoComponent>
-                    <RecursoComponent :src="'assets/hueso.png'" :cantidad="total_hueso"></RecursoComponent>
+                    <RecursoComponent :src="'assets/leche.png'"
+                                      :width="10"
+                                      :cantidad="total_leche"></RecursoComponent>
+                    <RecursoComponent :src="'assets/huevo.png'"
+                                      :width="10"
+                                      :cantidad="total_huevo"></RecursoComponent>
+                    <RecursoComponent :src="'assets/kod.png'"
+                                      :width="10"
+                                      :cantidad="total_kod"></RecursoComponent>
+                    <RecursoComponent :src="'assets/hueso.png'"
+                                      :width="10"
+                                      :cantidad="total_hueso"></RecursoComponent>
                   </div>
                 </div>
 
@@ -87,16 +130,30 @@
                 <h5>Consumo Total</h5>
                 <div class="row">
                   <div class="col">
-                    <RecursoComponent :src="'assets/energia.png'" :cantidad="consumo_energia"></RecursoComponent>
-                    <RecursoComponent :src="'assets/agua.png'" :cantidad="consumo_agua"></RecursoComponent>
-                    <RecursoComponent :src="'assets/carbon.png'" :cantidad="consumo_carbon"></RecursoComponent>
+                    <RecursoComponent :src="'assets/energia.png'"
+                                      :width="10"
+                                      :cantidad="consumo_energia"></RecursoComponent>
+                    <RecursoComponent :src="'assets/agua.png'"
+                                      :width="10"
+                                      :cantidad="consumo_agua"></RecursoComponent>
+                    <RecursoComponent :src="'assets/carbon.png'"
+                                      :width="10"
+                                      :cantidad="consumo_carbon"></RecursoComponent>
 
                   </div>
                   <div class="col">
-                    <RecursoComponent :src="'assets/maiz.png'" :cantidad="consumo_semilla_maiz"></RecursoComponent>
-                    <RecursoComponent :src="'assets/trigo.png'" :cantidad="consumo_semilla_trigo"></RecursoComponent>
-                    <RecursoComponent :src="'assets/bolsa_maiz.png'" :cantidad="consumo_bolsa_trigo"></RecursoComponent>
-                    <RecursoComponent :src="'assets/bolsa_trigo.png'" :cantidad="consumo_bolsa_maiz"></RecursoComponent>
+                    <RecursoComponent :src="'assets/maiz.png'"
+                                      :width="10"
+                                      :cantidad="consumo_semilla_maiz"></RecursoComponent>
+                    <RecursoComponent :src="'assets/trigo.png'"
+                                      :width="10"
+                                      :cantidad="consumo_semilla_trigo"></RecursoComponent>
+                    <RecursoComponent :src="'assets/bolsa_maiz.png'"
+                                      :width="10"
+                                      :cantidad="consumo_bolsa_trigo"></RecursoComponent>
+                    <RecursoComponent :src="'assets/bolsa_trigo.png'"
+                                      :width="10"
+                                      :cantidad="consumo_bolsa_maiz"></RecursoComponent>
                   </div>
                 </div>
 
@@ -963,9 +1020,6 @@ body {
   border-image-width: 18px;
   border-style: solid;
   border-width: 15px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   padding: 12px;
 }
 
@@ -975,7 +1029,7 @@ body {
 }
 
 .caja-cafe{
-  background: url('../assets/cafe.png') repeat;
+  background: #854C30;
   background-clip: padding-box;
   background-origin: initial;
   background-position: 50%;
@@ -985,16 +1039,11 @@ body {
   border-image-width: 18px;
   border-style: solid;
   border-width: 15px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   padding: 12px;
 }
 
 .relleno-cafe{
-  background-image: url('../assets/liso.png'); /* Reemplaza con la ruta de tu imagen */
-  background-repeat: repeat;
-  background-size: auto;
+  background: #D27D2C !important;
 }
 
 .btn-with-background {
@@ -1025,4 +1074,6 @@ body {
   font-size: 14px;
   color: white;
 }
+
+
 </style>
