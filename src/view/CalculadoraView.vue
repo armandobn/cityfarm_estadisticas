@@ -7,8 +7,11 @@
     </div>
 
     <div class="row">
-      <div class="col-md-4"><button class="btn btn-with-background" @click="calcular()">Calcular</button></div>
-      <div class="col-md-4 ms-auto"><a class=" btn-with-background" href="https://stream.hivelive.me/donate/misticogama" style="color: #7205ee; text-decoration: none;" target="_blank">Donaciones</a>
+      <div class="col-md-4">
+        <button class="btn btn-with-background" @click="calcular()">Calcular</button>
+      </div>
+      <div class="col-md-4 ms-auto"><a class=" btn-with-background" href="https://stream.hivelive.me/donate/misticogama"
+                                       style="color: #7205ee; text-decoration: none;" target="_blank">Donaciones</a>
       </div>
     </div>
 
@@ -261,254 +264,475 @@
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col">
-        <div class="row">
-          <div class="col">
-            <h3>Pozo de Agua</h3>
-            <div class="form-floating mb-3">
-              <input type="text" v-model="nivel_pozo_agua" class="form-control" id="floatingInput"
-                     placeholder="name@example.com">
-              <label for="floatingInput">Nivel</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="text" v-model="horas_pozo_agua" class="form-control" id="floatingInput"
-                     placeholder="name@example.com">
-              <label for="floatingInput">Horas</label>
-            </div>
-          </div>
-          <div class="col">
-            <h3>Fabrica de Energia</h3>
-            <div class="form-floating mb-3">
-              <input type="text" v-model="nivel_fabrica_energia" class="form-control" id="floatingInput"
-                     placeholder="name@example.com">
-              <label for="floatingInput">Nivel</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="text" v-model="horas_fabrica_energia" class="form-control" id="floatingInput"
-                     placeholder="name@example.com">
-              <label for="floatingInput">Horas</label>
-            </div>
 
+
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Pozo &nbsp &nbsp de &nbsp &nbsp Agua</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_pozo_agua" role="switch">
+              <label class="form-check-label" for="pozo_agua"></label>
+            </div>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col">
-            <h3>Tierra Trigo</h3>
-            <div class="form-floating mb-3">
-              <input type="text" v-model="nivel_tierra_trigo" class="form-control" id="floatingInput"
-                     placeholder="name@example.com">
-              <label for="floatingInput">Nivel</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="text" v-model="horas_tierra_trigo" class="form-control" id="floatingInput"
-                     placeholder="name@example.com">
-              <label for="floatingInput">Horas</label>
-            </div>
+        <div class="form-floating">
+          <select class="form-select" v-model="nivel_pozo_agua"  :disabled="!checked_pozo_agua" id="floatingSelect" aria-label="Floating label select example">
+            <option v-for="option in pozo_agua.nivel" v-bind:value="option.nivel">
+              {{ option.nivel }}
+            </option>
+          </select>
+          <label for="floatingSelect">Nivel</label>
+        </div>
 
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                 :disabled="!checked_pozo_agua"
+                 v-model="horas_pozo_agua">
+          <label for="floatingInput">Horas</label>
+        </div>
+      </div>
 
-          </div>
-          <div class="col">
-            <h3>Tierra Trigo</h3>
-            <div class="form-floating mb-3">
-              <input type="text" v-model="nivel_tierra_trigo_2" class="form-control" id="floatingInput"
-                     placeholder="name@example.com">
-              <label for="floatingInput">Nivel</label>
+      <div class="col">
+
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Fabrica de Energia</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_fabrica_energia" role="switch">
+              <label class="form-check-label" for=""></label>
             </div>
-            <div class="form-floating mb-3">
-              <input type="text" v-model="horas_tierra_trigo_2" class="form-control" id="floatingInput"
-                     placeholder="name@example.com">
-              <label for="floatingInput">Horas</label>
-            </div>
-
-
           </div>
         </div>
 
-        <div class="row">
-          <div class="col">
-            <h3>Tierra Maiz</h3>
-            <div class="form-floating mb-3">
-              <input type="text" v-model="nivel_tierra_maiz" class="form-control" id="floatingInput"
-                     placeholder="name@example.com">
-              <label for="floatingInput">Nivel</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="text" v-model="horas_tierra_maiz" class="form-control" id="floatingInput"
-                     placeholder="name@example.com">
-              <label for="floatingInput">Horas</label>
-            </div>
+
+        <div class="form-floating">
+          <select class="form-select" v-model="nivel_fabrica_energia"  :disabled="!checked_fabrica_energia" id="floatingSelect" aria-label="Floating label select example">
+            <option v-for="option in fabrica_energia.nivel" v-bind:value="option.nivel">
+              {{ option.nivel }}
+            </option>
+          </select>
+          <label for="floatingSelect">Nivel</label>
+        </div>
 
 
-          </div>
-          <div class="col">
-            <div class="form-floating mb-3">
-              <h3>Tierra Maiz</h3>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="nivel_tierra_maiz_2" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Nivel</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="horas_tierra_maiz_2" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Horas</label>
-              </div>
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                 :disabled="!checked_fabrica_energia"
+                 v-model="horas_fabrica_energia">
+          <label for="floatingInput">Horas</label>
+        </div>
+
+      </div>
+      <div class="col">
+
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Granja de Gallinas</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_granja_gallinas" role="switch">
+              <label class="form-check-label" for=""></label>
             </div>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="col">
-              <h3>Granja de Gallinas</h3>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="nivel_granja_gallina" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Nivel</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="horas_granja_gallina" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Horas</label>
-              </div>
+        <div class="form-floating">
+          <select class="form-select" v-model="nivel_granja_gallina"  :disabled="!checked_granja_gallinas" id="floatingSelect" aria-label="Floating label select example">
+            <option v-for="option in granja_gallinas.nivel" v-bind:value="option.nivel">
+              {{ option.nivel }}
+            </option>
+          </select>
+          <label for="floatingSelect">Nivel</label>
+        </div>
+
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" v-model="horas_granja_gallina"
+                 :disabled="!checked_granja_gallinas"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Horas</label>
+        </div>
 
 
+      </div>
+      <div class="col">
+
+
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Granja de Vacas</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_granja_vacas" role="switch">
+              <label class="form-check-label" for=""></label>
             </div>
-            <div class="col">
-              <h3>Granja de Vacas</h3>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="nivel_granja_vacas" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Nivel</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="horas_granja_vacas" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Horas</label>
-              </div>
+          </div>
+        </div>
+
+        <div class="form-floating">
+          <select class="form-select" v-model="nivel_granja_vacas"  :disabled="!checked_granja_vacas" id="floatingSelect" aria-label="Floating label select example">
+            <option v-for="option in granja_vacas.nivel" v-bind:value="option.nivel">
+              {{ option.nivel }}
+            </option>
+          </select>
+          <label for="floatingSelect">Nivel</label>
+        </div>
+
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" v-model="horas_granja_vacas"
+                 :disabled="!checked_granja_vacas"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Horas</label>
+        </div>
 
 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Tierra Trigo</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_tierra_trigo_1" role="switch">
+              <label class="form-check-label" for=""></label>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-floating">
+          <select class="form-select" v-model="nivel_tierra_trigo"  :disabled="!checked_tierra_trigo_1" id="floatingSelect" aria-label="Floating label select example">
+            <option v-for="option in tierra_trigo.nivel" v-bind:value="option.nivel">
+              {{ option.nivel }}
+            </option>
+          </select>
+          <label for="floatingSelect">Nivel</label>
+        </div>
+
+
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" v-model="horas_tierra_trigo"
+                 :disabled="!checked_tierra_trigo_1"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Horas</label>
+        </div>
+
+
+      </div>
+      <div class="col">
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Tierra Trigo</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_tierra_trigo_2" role="switch">
+              <label class="form-check-label" for=""></label>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-floating">
+          <select class="form-select" v-model="nivel_tierra_trigo_2"  :disabled="!checked_tierra_trigo_2" id="floatingSelect" aria-label="Floating label select example">
+            <option v-for="option in tierra_trigo.nivel" v-bind:value="option.nivel">
+              {{ option.nivel }}
+            </option>
+          </select>
+          <label for="floatingSelect">Nivel</label>
+        </div>
+        <div class="form-floating mb-3  mt-3">
+          <input type="text" v-model="horas_tierra_trigo_2"
+                 :disabled="!checked_tierra_trigo_2"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Horas</label>
+        </div>
+
+
+      </div>
+      <div class="col">
+
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Tierra Maiz</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_tierra_maiz_1" role="switch">
+              <label class="form-check-label" for=""></label>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-floating">
+          <select class="form-select" v-model="nivel_tierra_maiz"  :disabled="!checked_tierra_maiz_1" id="floatingSelect" aria-label="Floating label select example">
+            <option v-for="option in tierra_maiz.nivel" v-bind:value="option.nivel">
+              {{ option.nivel }}
+            </option>
+          </select>
+          <label for="floatingSelect">Nivel</label>
+        </div>
+        <div class="form-floating mb-3  mt-3">
+          <input type="text" v-model="horas_tierra_maiz"
+                 :disabled="!checked_tierra_maiz_1"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Horas</label>
+        </div>
+
+
+      </div>
+      <div class="col">
+        <div class="form-floating mb-3">
+
+
+          <div class="d-flex bd-highlight ">
+            <div class="me-auto p-2 bd-highlight"><h3>Tierra Maiz</h3></div>
+            <div class="p-2 bd-highlight">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" v-model="checked_tierra_maiz_2" role="switch">
+                <label class="form-check-label" for=""></label>
+              </div>
             </div>
           </div>
 
-          <div class="row">
-            <div class="col">
-              <h3>Arboles</h3>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="nivel_arboles" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Nivel</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="horas_arboles" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Horas</label>
-              </div>
+          <div class="form-floating">
+            <select class="form-select" v-model="nivel_tierra_maiz_2"  :disabled="!checked_tierra_maiz_2" id="floatingSelect" aria-label="Floating label select example">
+              <option v-for="option in tierra_maiz.nivel" v-bind:value="option.nivel">
+                {{ option.nivel }}
+              </option>
+            </select>
+            <label for="floatingSelect">Nivel</label>
+          </div>
+          <div class="form-floating mb-3  mt-3">
+            <input type="text" v-model="horas_tierra_maiz_2"
+                   :disabled="!checked_tierra_maiz_2"
+                   class="form-control" id="floatingInput"
+                   placeholder="name@example.com">
+            <label for="floatingInput">Horas</label>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            </div>
+    <div class="row">
+      <div class="col">
 
-            <div class="col">
-              <h3>Arboles</h3>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="nivel_arboles_2" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Nivel</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="horas_arboles_2" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Horas</label>
-              </div>
-            </div>
-
-            <div class="col">
-              <h3>Arboles</h3>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="nivel_arboles_3" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Nivel</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="horas_arboles_3" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Horas</label>
-              </div>
-
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Arboles</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_arboles_1" role="switch">
+              <label class="form-check-label" for=""></label>
             </div>
           </div>
+        </div>
 
-          <h2>MOLINO</h2>
-          <div class="row">
-            <div class="col">
-              <h3>Madera</h3>
-              <label>{{ molino.madera.tiempo }} horas</label>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="molino_cant_madera" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Cantidad</label>
-              </div>
-            </div>
-            <div class="col">
-              <h3>Maiz</h3>
-              <label>{{ molino.maiz.tiempo }} horas</label>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="molino_cant_maiz" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Cantidad</label>
-              </div>
-            </div>
-
-            <div class="col">
-              <h3>Trigo</h3>
-              <label>{{ molino.trigo.tiempo }} horas</label>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="molino_cant_trigo" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Cantidad</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col">
-              <h3>Leche</h3>
-              <label>{{ molino.leche.tiempo }} horas</label>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="molino_cant_leche" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Cantidad</label>
-              </div>
-            </div>
-            <div class="col">
-              <h3>Huevo</h3>
-              <label>{{ molino.huevo.tiempo }} horas</label>
-              <div class="form-floating mb-3">
-                <input type="text" v-model="molino_cant_huevo" class="form-control" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Cantidad</label>
-              </div>
-            </div>
-          </div>
-
+        <div class="form-floating">
+          <select class="form-select" v-model="nivel_arboles"  :disabled="!checked_arboles_1" id="floatingSelect" aria-label="Floating label select example">
+            <option v-for="option in arboles.nivel" v-bind:value="option.nivel">
+              {{ option.nivel }}
+            </option>
+          </select>
+          <label for="floatingSelect">Nivel</label>
+        </div>
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" v-model="horas_arboles"
+                 :disabled="!checked_arboles_1"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Horas</label>
         </div>
 
       </div>
 
+      <div class="col">
 
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Arboles</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_arboles_2" role="switch">
+              <label class="form-check-label" for=""></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-floating">
+          <select class="form-select" v-model="nivel_arboles_2"  :disabled="!checked_arboles_2" id="floatingSelect" aria-label="Floating label select example">
+            <option v-for="option in arboles.nivel" v-bind:value="option.nivel">
+              {{ option.nivel }}
+            </option>
+          </select>
+          <label for="floatingSelect">Nivel</label>
+        </div>
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" v-model="horas_arboles_2"
+                 :disabled="!checked_arboles_2"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Horas</label>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Arboles</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_arboles_3" role="switch">
+              <label class="form-check-label" for=""></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-floating">
+          <select class="form-select" v-model="nivel_arboles_3"  :disabled="!checked_arboles_3" id="floatingSelect" aria-label="Floating label select example">
+            <option v-for="option in arboles.nivel" v-bind:value="option.nivel">
+              {{ option.nivel }}
+            </option>
+          </select>
+          <label for="floatingSelect">Nivel</label>
+        </div>
+
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" v-model="horas_arboles_3"
+                 :disabled="!checked_arboles_3"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Horas</label>
+        </div>
+
+      </div>
     </div>
+
+    <div class="row text-center">
+      <h2>MOLINO</h2>
+      <div class="col">
+
+
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Madera</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_molino_madera" role="switch">
+              <label class="form-check-label" for=""></label>
+            </div>
+          </div>
+        </div>
+
+        <label>{{ molino.madera.tiempo }} horas</label>
+        <div class="form-floating mb-3">
+          <input type="text" v-model="molino_cant_madera"
+                 :disabled="!checked_molino_madera"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Cantidad</label>
+        </div>
+      </div>
+      <div class="col">
+
+
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Maiz</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_molino_maiz" role="switch">
+              <label class="form-check-label" for=""></label>
+            </div>
+          </div>
+        </div>
+        <label>{{ molino.maiz.tiempo }} horas</label>
+        <div class="form-floating mb-3">
+          <input type="text" v-model="molino_cant_maiz"
+                 :disabled="!checked_molino_maiz"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Cantidad</label>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Trigo</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_molino_trigo" role="switch">
+              <label class="form-check-label" for=""></label>
+            </div>
+          </div>
+        </div>
+
+        <label>{{ molino.trigo.tiempo }} horas</label>
+        <div class="form-floating mb-3">
+          <input type="text" v-model="molino_cant_trigo"
+                 :disabled="!checked_molino_trigo"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Cantidad</label>
+        </div>
+      </div>
+
+      <div class="col">
+
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Leche</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_molino_leche" role="switch">
+              <label class="form-check-label" for=""></label>
+            </div>
+          </div>
+        </div>
+        <label>{{ molino.leche.tiempo }} horas</label>
+        <div class="form-floating mb-3">
+          <input type="text" v-model="molino_cant_leche"
+                 :disabled="!checked_molino_leche"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Cantidad</label>
+        </div>
+      </div>
+      <div class="col">
+
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Huevo</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_molino_huevo" role="switch">
+              <label class="form-check-label" for=""></label>
+            </div>
+          </div>
+        </div>
+        <label>{{ molino.huevo.tiempo }} horas</label>
+        <div class="form-floating mb-3">
+          <input type="text" v-model="molino_cant_huevo"
+                 :disabled="!checked_molino_huevo"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Cantidad</label>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </template>
 
 
 <script setup>
-import {ref} from 'vue'
+import {ref, computed} from 'vue'
 import RecursoComponent from "../components/RecursoComponent.vue";
 import ObtencionRecursoComponent from "../components/ObtencionRecursoComponent.vue";
 
 const pozo_agua = {
   nivel: {
     1: {
+      nivel:1,
       produccion: 1,
       tiempo: 4,
       requerimiento: {
@@ -517,6 +741,7 @@ const pozo_agua = {
       almacenamiento: 8
     },
     2: {
+      nivel:2,
       produccion: 1,
       tiempo: 3,
       requerimiento: {
@@ -525,6 +750,7 @@ const pozo_agua = {
       almacenamiento: 8
     },
     3: {
+      nivel:3,
       produccion: 1,
       tiempo: 2,
       requerimiento: {
@@ -533,6 +759,7 @@ const pozo_agua = {
       almacenamiento: 8
     },
     4: {
+      nivel:4,
       produccion: 1,
       tiempo: 1,
       requerimiento: {
@@ -546,6 +773,7 @@ const pozo_agua = {
 const fabrica_energia = {
   nivel: {
     1: {
+      nivel:1,
       produccion: 1,
       tiempo: 4,
       requerimiento: {
@@ -554,6 +782,7 @@ const fabrica_energia = {
       almacenamiento: 8
     },
     2: {
+      nivel:2,
       produccion: 1,
       tiempo: 3,
       requerimiento: {
@@ -562,6 +791,7 @@ const fabrica_energia = {
       almacenamiento: 8
     },
     3: {
+      nivel:3,
       produccion: 1,
       tiempo: 2,
       requerimiento: {
@@ -570,6 +800,7 @@ const fabrica_energia = {
       almacenamiento: 8
     },
     4: {
+      nivel:4,
       produccion: 1,
       tiempo: 1,
       requerimiento: {
@@ -583,6 +814,7 @@ const fabrica_energia = {
 const granja_gallinas = {
   nivel: {
     1: {
+      nivel:1,
       produccion: 2,
       tiempo: 12,
       requerimiento: {
@@ -591,6 +823,7 @@ const granja_gallinas = {
       }
     },
     2: {
+      nivel:2,
       produccion: 4,
       tiempo: 12,
       requerimiento: {
@@ -599,6 +832,7 @@ const granja_gallinas = {
       }
     },
     3: {
+      nivel:3,
       produccion: 6,
       tiempo: 12,
       requerimiento: {
@@ -607,6 +841,7 @@ const granja_gallinas = {
       }
     },
     4: {
+      nivel:4,
       produccion: 8,
       tiempo: 12,
       requerimiento: {
@@ -620,6 +855,7 @@ const granja_gallinas = {
 const granja_vacas = {
   nivel: {
     1: {
+      nivel:1,
       produccion: 2,
       tiempo: 24,
       requerimiento: {
@@ -628,6 +864,7 @@ const granja_vacas = {
       }
     },
     2: {
+      nivel:2,
       produccion: 4,
       tiempo: 24,
       requerimiento: {
@@ -636,6 +873,7 @@ const granja_vacas = {
       }
     },
     3: {
+      nivel:3,
       produccion: 6,
       tiempo: 24,
       requerimiento: {
@@ -644,6 +882,7 @@ const granja_vacas = {
       }
     },
     4: {
+      nivel:4,
       produccion: 8,
       tiempo: 24,
       requerimiento: {
@@ -657,6 +896,7 @@ const granja_vacas = {
 const tierra_maiz = {
   nivel: {
     1: {
+      nivel:1,
       produccion: 5,
       tiempo: 48,
       requerimiento: {
@@ -666,6 +906,7 @@ const tierra_maiz = {
       },
     },
     2: {
+      nivel:2,
       produccion: 10,
       tiempo: 48,
       requerimiento: {
@@ -674,6 +915,7 @@ const tierra_maiz = {
       },
     },
     3: {
+      nivel:3,
       produccion: 15,
       tiempo: 48,
       requerimiento: {
@@ -682,6 +924,7 @@ const tierra_maiz = {
       },
     },
     4: {
+      nivel:4,
       produccion: 20,
       tiempo: 48,
       requerimiento: {
@@ -695,6 +938,7 @@ const tierra_maiz = {
 const tierra_trigo = {
   nivel: {
     1: {
+      nivel:1,
       produccion: 2,
       tiempo: 24,
       requerimiento: {
@@ -704,6 +948,7 @@ const tierra_trigo = {
       },
     },
     2: {
+      nivel:2,
       produccion: 4,
       tiempo: 24,
       requerimiento: {
@@ -712,6 +957,7 @@ const tierra_trigo = {
       },
     },
     3: {
+      nivel:3,
       produccion: 6,
       tiempo: 24,
       requerimiento: {
@@ -720,6 +966,7 @@ const tierra_trigo = {
       },
     },
     4: {
+      nivel:4,
       produccion: 20,
       tiempo: 48,
       requerimiento: {
@@ -733,6 +980,7 @@ const tierra_trigo = {
 const arboles = {
   nivel: {
     1: {
+      nivel:1,
       produccion: 5,
       tiempo: 72,
       requerimiento: {
@@ -740,6 +988,7 @@ const arboles = {
       },
     },
     2: {
+      nivel:2,
       produccion: 10,
       tiempo: 72,
       requerimiento: {
@@ -747,6 +996,7 @@ const arboles = {
       }
     },
     3: {
+      nivel:3,
       produccion: 15,
       tiempo: 72,
       requerimiento: {
@@ -754,6 +1004,7 @@ const arboles = {
       }
     },
     4: {
+      nivel:4,
       produccion: 20,
       tiempo: 72,
       requerimiento: {
@@ -803,63 +1054,63 @@ const molino = {
 }
 
 
-let nivel_pozo_agua = ref(0);
+let nivel_pozo_agua = ref(1);
 let horas_pozo_agua = ref(0);
 let produccion_agua = ref(0);
 let requerimiento_energia_pozo = ref(0);
 
-let nivel_fabrica_energia = ref(0);
+let nivel_fabrica_energia = ref(1);
 let horas_fabrica_energia = ref(0);
 let produccion_energia = ref(0);
 let requerimiento_carbon_fabrica = ref(0);
 
-let nivel_tierra_maiz = ref(0);
+let nivel_tierra_maiz = ref(1);
 let horas_tierra_maiz = ref(0);
 let produccion_maiz = ref(0);
 let requerimiento_semilla_maiz_tierra_maiz = ref(0);
 let requerimiento_agua_tierra_maiz = ref(0);
 
-let nivel_tierra_maiz_2 = ref(0);
+let nivel_tierra_maiz_2 = ref(1);
 let horas_tierra_maiz_2 = ref(0);
 let produccion_maiz_2 = ref(0);
 let requerimiento_semilla_maiz_tierra_maiz_2 = ref(0);
 let requerimiento_agua_tierra_maiz_2 = ref(0);
 
-let nivel_tierra_trigo = ref(0);
+let nivel_tierra_trigo = ref(1);
 let horas_tierra_trigo = ref(0);
 let produccion_trigo = ref(0);
 let requerimiento_semilla_trigo_tierra_trigo = ref(0);
 let requerimiento_agua_tierra_trigo = ref(0);
 
-let nivel_tierra_trigo_2 = ref(0);
+let nivel_tierra_trigo_2 = ref(1);
 let horas_tierra_trigo_2 = ref(0);
 let produccion_trigo_2 = ref(0);
 let requerimiento_semilla_trigo_tierra_trigo_2 = ref(0);
 let requerimiento_agua_tierra_trigo_2 = ref(0);
 
-let nivel_granja_gallina = ref(0);
+let nivel_granja_gallina = ref(1);
 let horas_granja_gallina = ref(0);
 let produccion_huevo = ref(0);
 let requerimiento_bolsa_maiz_granja_gallina = ref(0);
 let requerimiento_agua_granja_gallina = ref(0);
 
-let nivel_granja_vacas = ref(0);
+let nivel_granja_vacas = ref(1);
 let horas_granja_vacas = ref(0);
 let produccion_leche = ref(0);
 let requerimiento_bolsa_trigo_granja_vaca = ref(0);
 let requerimiento_agua_granja_vaca = ref(0);
 
-let nivel_arboles = ref(0);
+let nivel_arboles = ref(1);
 let horas_arboles = ref(0);
 let produccion_madera = ref(0);
 let requerimiento_agua_arboles = ref(0);
 
-let nivel_arboles_2 = ref(0);
+let nivel_arboles_2 = ref(1);
 let horas_arboles_2 = ref(0);
 let produccion_madera_2 = ref(0);
 let requerimiento_agua_arboles_2 = ref(0);
 
-let nivel_arboles_3 = ref(0);
+let nivel_arboles_3 = ref(1);
 let horas_arboles_3 = ref(0);
 let produccion_madera_3 = ref(0);
 let requerimiento_agua_arboles_3 = ref(0);
@@ -905,6 +1156,24 @@ let consumo_leche = ref(0)
 let consumo_huevo = ref(0)
 let consumo_madera = ref(0)
 let consumo_carbon = ref(0)
+
+let checked_pozo_agua = ref(false);
+let checked_fabrica_energia = ref(false);
+let checked_tierra_trigo_1 = ref(false);
+let checked_tierra_trigo_2 = ref(false);
+let checked_tierra_maiz_1 = ref(false);
+let checked_tierra_maiz_2 = ref(false);
+let checked_granja_gallinas = ref(false);
+let checked_granja_vacas = ref(false);
+let checked_arboles_1 = ref(false);
+let checked_arboles_2 = ref(false);
+let checked_arboles_3 = ref(false);
+let checked_molino_madera = ref(false);
+let checked_molino_maiz = ref(false);
+let checked_molino_trigo = ref(false);
+let checked_molino_leche = ref(false);
+let checked_molino_huevo = ref(false);
+
 
 function calcular() {
   let agua = pozo_agua.nivel[nivel_pozo_agua.value];
@@ -1023,12 +1292,12 @@ body {
   padding: 12px;
 }
 
-.text-with-shadown{
+.text-with-shadown {
   color: white !important;
   text-shadow: 0px 0px 5px black;
 }
 
-.caja-cafe{
+.caja-cafe {
   background: #854C30;
   background-clip: padding-box;
   background-origin: initial;
@@ -1042,7 +1311,7 @@ body {
   padding: 12px;
 }
 
-.relleno-cafe{
+.relleno-cafe {
   background: #D27D2C !important;
 }
 
