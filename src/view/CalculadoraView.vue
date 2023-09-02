@@ -199,23 +199,27 @@
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="'Pozo de Agua'" :src-produccion="'assets/agua.png'"
                                              :src-consume="'assets/energia.png'" :produccion="produccion_agua"
+                                             :consume2="0"
                                              :consume="requerimiento_energia_pozo"></ObtencionRecursoComponent>
                 </div>
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="'Fabrica Energia'" :src-produccion="'assets/energia.png'"
                                              :src-consume="'assets/carbon.png'" :produccion="produccion_energia"
+                                             :consume2="0"
                                              :consume="requerimiento_carbon_fabrica"></ObtencionRecursoComponent>
                 </div>
 
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="'Molino Leche'" :src-produccion="'assets/kod.png'"
                                              :src-consume="'assets/leche.png'" :produccion="total_kod"
+                                             :consume2="0"
                                              :consume="consumo_leche"></ObtencionRecursoComponent>
                 </div>
 
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="'Molino Huevo'" :src-produccion="'assets/hueso.png'"
                                              :src-consume="'assets/huevo.png'" :produccion="total_hueso"
+                                             :consume2="0"
                                              :consume="consumo_huevo"></ObtencionRecursoComponent>
                 </div>
 
@@ -267,6 +271,7 @@
                                              :src-produccion="'assets/madera.png'"
                                              :produccion=" produccion_madera + produccion_madera_2 + produccion_madera_3"
                                              :src-consume="'assets/agua.png'"
+                                             :consume2="0"
                                              :consume="requerimiento_agua_arboles + requerimiento_agua_arboles_2 + requerimiento_agua_arboles_3"
                                              :otro-rercuso="false"></ObtencionRecursoComponent>
                 </div>
@@ -276,6 +281,7 @@
                                              :produccion=" produccion_carbon"
                                              :src-consume="'assets/madera.png'"
                                              :consume="molino_cant_madera"
+                                             :consume2="0"
                                              :otro-rercuso="false"></ObtencionRecursoComponent>
                 </div>
                 <div class="col-3">
@@ -284,6 +290,7 @@
                                              :produccion=" produccion_bolsa_maiz"
                                              :src-consume="'assets/maiz.png'"
                                              :consume="molino_cant_maiz"
+                                             :consume2="0"
                                              :otro-rercuso="false"></ObtencionRecursoComponent>
                 </div>
                 <div class="col-3">
@@ -292,6 +299,7 @@
                                              :produccion=" produccion_bolsa_trigo"
                                              :src-consume="'assets/trigo.png'"
                                              :consume="molino_cant_trigo"
+                                             :consume2="0"
                                              :otro-rercuso="false"></ObtencionRecursoComponent>
                 </div>
               </div>
@@ -670,7 +678,7 @@
     </div>
 
     <div class="row text-center">
-      <h2>MOLINO</h2>
+      <h2 class="text-with-shadown">MOLINO</h2>
       <div class="col">
 
 

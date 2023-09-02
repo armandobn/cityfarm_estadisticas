@@ -3,7 +3,7 @@
         // 'background-color':'#ccc' //kebab-case
         'width': props.width+'%'
     }" alt="" >: <label :style="{ color: props.cantidad < 0 ? 'red' : '',
-              'fontWeight': 'bold'}">{{ props.cantidad }}</label>  </label><br>
+              'fontWeight': 'bold'}">{{ props.cantidad.toFixed(1) }}</label>  </label><br>
 </template>
 <script setup>
 import { defineProps } from 'vue';
