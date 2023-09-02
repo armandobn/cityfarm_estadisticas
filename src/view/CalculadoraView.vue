@@ -518,8 +518,6 @@
             </div>
           </div>
         </div>
-
-
         <div class="form-floating">
           <select class="form-select" v-model="nivel_tierra_maiz" :disabled="!checked_tierra_maiz_1"
                   @change="onChange($event,'tierra_maiz_1')"
@@ -542,36 +540,31 @@
 
       </div>
       <div class="col">
-        <div class="form-floating mb-3">
-
-
-          <div class="d-flex bd-highlight ">
-            <div class="me-auto p-2 bd-highlight"><h3>Tierra Maiz</h3></div>
-            <div class="p-2 bd-highlight">
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" v-model="checked_tierra_maiz_2" role="switch">
-                <label class="form-check-label" for=""></label>
-              </div>
+        <div class="d-flex bd-highlight ">
+          <div class="me-auto p-2 bd-highlight"><h3>Tierra Maiz</h3></div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" v-model="checked_tierra_maiz_2" role="switch">
+              <label class="form-check-label" for=""></label>
             </div>
           </div>
-
-          <div class="form-floating">
-            <select class="form-select" v-model="nivel_tierra_maiz_2" :disabled="!checked_tierra_maiz_2"
-                    @change="onChange($event,'tierra_maiz_2')"
-                    id="floatingSelect" aria-label="Floating label select example">
-              <option v-for="option in tierra_maiz.nivel" v-bind:value="option.nivel">
-                {{ option.nivel }}
-              </option>
-            </select>
-            <label for="floatingSelect">Nivel</label>
-          </div>
-          <div class="form-floating mb-3  mt-3">
-            <input type="number" v-model="horas_tierra_maiz_2"
-                   :disabled="!checked_tierra_maiz_2"
-                   class="form-control" id="floatingInput"
-                   placeholder="name@example.com">
-            <label for="floatingInput">Horas</label>
-          </div>
+        </div>
+        <div class="form-floating">
+          <select class="form-select" v-model="nivel_tierra_maiz_2" :disabled="!checked_tierra_maiz_2"
+                  @change="onChange($event,'tierra_maiz_2')"
+                  id="floatingSelect" aria-label="Floating label select example">
+            <option v-for="option in tierra_maiz.nivel" v-bind:value="option.nivel">
+              {{ option.nivel }}
+            </option>
+          </select>
+          <label for="floatingSelect">Nivel</label>
+        </div>
+        <div class="form-floating mb-3  mt-3">
+          <input type="number" v-model="horas_tierra_maiz_2"
+                 :disabled="!checked_tierra_maiz_2"
+                 class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">Horas</label>
         </div>
       </div>
     </div>
@@ -1462,6 +1455,68 @@ body {
   font-size: 14px;
   color: white;
 }
+
+.form-floating label {
+  background-color: transparent !important;
+  color: white;
+  font-weight: bold;
+}
+
+
+.form-floating input{
+  background-color: #854C30;
+  border-image-repeat: repeat;
+  border-image-slice: 4 4 4 4;
+  border-image-source: url('../assets/cafeBorde.png');
+  border-image-width: 10px;
+  border-style: solid;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 4% !important;
+}
+
+.form-floating input:focus {
+  background-color: #854C30;
+  color: white;
+  font-weight: bold;
+}
+
+.form-floating input:disabled {
+  background-color: gray;
+}
+
+.form-floating select {
+  background-color: #854C30;
+  border-image-repeat: repeat;
+  border-image-slice: 4 4 4 4;
+  border-image-source: url('../assets/cafeBorde.png');
+  border-image-width: 10px;
+  border-style: solid;
+  color: white;
+  font-weight: bold;
+}
+
+.form-floating select:disabled {
+  background-color: gray;
+}
+
+.form-floating select:not(:focus) , select:focus {
+  text-align-last: center;
+}
+
+.form-floating select option{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.form-floating>.form-select {
+  padding-top: 4% !important;
+}
+
 
 
 </style>
