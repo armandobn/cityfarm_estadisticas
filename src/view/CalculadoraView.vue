@@ -308,7 +308,7 @@
 
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Pozo &nbsp &nbsp de &nbsp &nbsp Agua</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Pozo &nbsp &nbsp de &nbsp &nbsp Agua</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_pozo_agua" role="switch">
@@ -340,7 +340,7 @@
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Fabrica de Energia</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Fabrica de Energia</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_fabrica_energia" role="switch">
@@ -373,7 +373,7 @@
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Granja de Gallinas</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Granja de Gallinas</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_granja_gallinas" role="switch">
@@ -407,7 +407,7 @@
 
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Granja &nbsp de &nbsp Vacas</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Granja &nbsp de &nbsp Vacas</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_granja_vacas" role="switch">
@@ -443,7 +443,7 @@
     <div class="row">
       <div class="col">
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Tierra Trigo</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Tierra Trigo</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_tierra_trigo_1" role="switch">
@@ -477,7 +477,7 @@
       </div>
       <div class="col">
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Tierra Trigo</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Tierra Trigo</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_tierra_trigo_2" role="switch">
@@ -510,7 +510,7 @@
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Tierra Maiz</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Tierra Maiz</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_tierra_maiz_1" role="switch">
@@ -541,7 +541,7 @@
       </div>
       <div class="col">
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Tierra Maiz</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Tierra Maiz</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_tierra_maiz_2" role="switch">
@@ -573,7 +573,7 @@
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Arboles</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Arboles</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_arboles_1" role="switch">
@@ -606,7 +606,7 @@
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Arboles</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Arboles</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_arboles_2" role="switch">
@@ -637,7 +637,7 @@
 
       <div class="col">
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Arboles</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Arboles</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_arboles_3" role="switch">
@@ -675,7 +675,7 @@
 
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Madera</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Madera</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_molino_madera" role="switch">
@@ -684,7 +684,7 @@
           </div>
         </div>
 
-        <label>{{ molino.madera.tiempo }} horas</label>
+        <label class="text-with-shadown">{{ molino.madera.tiempo }} horas</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_madera"
                  :disabled="!checked_molino_madera"
@@ -697,7 +697,7 @@
 
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Maiz</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Maiz</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_molino_maiz" role="switch">
@@ -705,7 +705,7 @@
             </div>
           </div>
         </div>
-        <label>{{ molino.maiz.tiempo }} horas</label>
+        <label class="text-with-shadown">{{ molino.maiz.tiempo }} horas</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_maiz"
                  :disabled="!checked_molino_maiz"
@@ -717,7 +717,7 @@
 
       <div class="col">
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Trigo</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Trigo</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_molino_trigo" role="switch">
@@ -726,7 +726,7 @@
           </div>
         </div>
 
-        <label>{{ molino.trigo.tiempo }} horas</label>
+        <label class="text-with-shadown">{{ molino.trigo.tiempo }} horas</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_trigo"
                  :disabled="!checked_molino_trigo"
@@ -739,7 +739,7 @@
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Leche</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Leche</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_molino_leche" role="switch">
@@ -747,7 +747,7 @@
             </div>
           </div>
         </div>
-        <label>{{ molino.leche.tiempo }} horas</label>
+        <label class="text-with-shadown">{{ molino.leche.tiempo }} horas</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_leche"
                  :disabled="!checked_molino_leche"
@@ -759,7 +759,7 @@
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight"><h3>Huevo</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Huevo</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_molino_huevo" role="switch">
@@ -767,7 +767,7 @@
             </div>
           </div>
         </div>
-        <label>{{ molino.huevo.tiempo }} horas</label>
+        <label class="text-with-shadown">{{ molino.huevo.tiempo }} horas</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_huevo"
                  :disabled="!checked_molino_huevo"
