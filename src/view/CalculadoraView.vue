@@ -2,21 +2,35 @@
   <br>
   <div class="container">
     <div class="row">
-      <div class="col-10"></div>
-
+      <div class="col text-center">
+        <h1 class="text-with-shadown"> {{traslate('title')}}</h1>
+      </div>
     </div>
 
-    <div class="row">
+
+
+    <div class="row mt-4">
       <div class="col-md-4">
-        <button class="btn btn-with-background" @click="calcular()">Calcular</button>
+        <button class="btn btn-with-background" @click="calcular()">{{traslate('calcular')}}</button>
       </div>
-      <div class="col-md-4 ms-auto"><a class=" btn-with-background" href="https://stream.hivelive.me/donate/misticogama"
-                                       style="color: #7205ee; text-decoration: none;" target="_blank">Donaciones</a>
+      <div class="col">
+        <a class="btn btn-with-background" href="https://stream.hivelive.me/donate/misticogama"
+           style="color: #7205ee; text-decoration: none;" target="_blank">{{traslate('donacion')}}</a>
+      </div>
+      <div class="col-md-3 ms-auto">
+        <div class="form-floating">
+          <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+              v-model="idioma" >
+            <option value="ES" selected>Spanish</option>
+            <option value="EN">English</option>
+          </select>
+          <label for="floatingSelect">{{traslate('lenguaje')}}</label>
+        </div>
       </div>
     </div>
 
 
-    <h5 class="text-with-shadown">Estadistica</h5>
+    <h5 class="text-with-shadown">{{traslate('estadisticas')}} <button class="btn btn-with-background-small" @click="alerta(traslate('estadisticas'),traslate('infoStadistica'))">?</button></h5>
     <div class="row  text-with-shadown">
       <div class="col">
         <RecursoComponent :src="'assets/energia.png'"
@@ -78,20 +92,21 @@
           <button class="btn btn-with-background" data-bs-toggle="collapse" href="#collapseExample" role="button"
                   aria-expanded="false"
                   aria-controls="collapseExample">
-            Produccion Total
+            {{traslate('produccionTotal')}}
           </button>
-          <button class="btn btn-with-background" data-bs-toggle="collapse" href="#collapseObtenido" role="button"
+          <button class="btn btn-with-background-small" @click="alerta(traslate('produccionTotal'),traslate('infoProduccionTotal'))">?</button>
+        <button class="btn btn-with-background" data-bs-toggle="collapse" href="#collapseObtenido" role="button"
                   aria-expanded="false"
                   aria-controls="collapseExample">
-            Obtencion Invidividual
+            {{traslate('obtencionIndividual')}}
           </button>
-
+          <button class="btn btn-with-background-small" @click="alerta(traslate('obtencionIndividual'),traslate('infoObtencionIndividual'))">?</button>
         </p>
         <div class="collapse caja-cafe" id="collapseExample">
           <div class="card card-body relleno-cafe">
             <div class="row">
               <div class="col">
-                <h5>Produccion Total</h5>
+                <h5>{{traslate('produccionTotal')}}</h5>
                 <div class="row">
                   <div class="col">
                     <RecursoComponent :src="'assets/energia.png'"
@@ -139,7 +154,7 @@
 
               </div>
               <div class="col">
-                <h5>Consumo Total</h5>
+                <h5>{{traslate('consumoTotal')}}</h5>
                 <div class="row">
                   <div class="col">
                     <RecursoComponent :src="'assets/energia.png'"
@@ -193,31 +208,39 @@
         <div class="collapse caja-cafe" id="collapseObtenido">
           <div class="card card-body relleno-cafe ">
             <div class="row">
-              <h3>Obtencion Individual</h3>
+              <h3> {{traslate('obtencionIndividual')}}</h3>
 
               <div class="row">
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Pozo de Agua'" :src-produccion="'assets/agua.png'"
+                  <ObtencionRecursoComponent :titulo="traslate('pozoAgua')" :src-produccion="'assets/agua.png'"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-consume="'assets/energia.png'" :produccion="produccion_agua"
                                              :consume2="0"
                                              :consume="requerimiento_energia_pozo"></ObtencionRecursoComponent>
                 </div>
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Fabrica Energia'" :src-produccion="'assets/energia.png'"
+                  <ObtencionRecursoComponent :titulo="traslate('fabricaEnegria')" :src-produccion="'assets/energia.png'"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-consume="'assets/carbon.png'" :produccion="produccion_energia"
                                              :consume2="0"
                                              :consume="requerimiento_carbon_fabrica"></ObtencionRecursoComponent>
                 </div>
 
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Molino Leche'" :src-produccion="'assets/kod.png'"
+                  <ObtencionRecursoComponent :titulo="traslate('molinoLeche')" :src-produccion="'assets/kod.png'"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-consume="'assets/leche.png'" :produccion="total_kod"
                                              :consume2="0"
                                              :consume="consumo_leche"></ObtencionRecursoComponent>
                 </div>
 
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Molino Huevo'" :src-produccion="'assets/hueso.png'"
+                  <ObtencionRecursoComponent :titulo="traslate('molinoHuevo')" :src-produccion="'assets/hueso.png'"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-consume="'assets/huevo.png'" :produccion="total_hueso"
                                              :consume2="0"
                                              :consume="consumo_huevo"></ObtencionRecursoComponent>
@@ -227,7 +250,9 @@
 
               <div class="row">
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Tierra Trigo'"
+                  <ObtencionRecursoComponent :titulo="traslate('tierraTrigo')"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-produccion="'assets/trigo.png'" :src-consume="'assets/agua.png'"
                                              :produccion=" produccion_trigo + produccion_trigo_2"
                                              :consume="requerimiento_agua_tierra_trigo + requerimiento_agua_tierra_trigo_2"
@@ -236,7 +261,9 @@
                                              :src-consume2="'assets/semilla_trigo.png'"></ObtencionRecursoComponent>
                 </div>
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Tierra Maiz'"
+                  <ObtencionRecursoComponent :titulo="traslate('tierraMaiz')"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-produccion="'assets/maiz.png'" :src-consume="'assets/agua.png'"
                                              :produccion="  produccion_maiz + produccion_maiz_2"
                                              :consume="requerimiento_agua_tierra_maiz + requerimiento_agua_tierra_maiz_2"
@@ -245,7 +272,9 @@
                                              :src-consume2="'assets/semilla_maiz.png'"></ObtencionRecursoComponent>
                 </div>
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Granja Gallina'"
+                  <ObtencionRecursoComponent :titulo="traslate('granjaGallinas')"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-produccion="'assets/huevo.png'" :src-consume="'assets/agua.png'"
                                              :produccion=" produccion_huevo"
                                              :consume="requerimiento_agua_granja_gallina"
@@ -254,7 +283,9 @@
                                              :src-consume2="'assets/bolsa_maiz.png'"></ObtencionRecursoComponent>
                 </div>
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Granja Vacas'"
+                  <ObtencionRecursoComponent :titulo="traslate('granjaVacas')"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-produccion="'assets/leche.png'" :src-consume="'assets/agua.png'"
                                              :produccion=" produccion_leche"
                                              :consume="requerimiento_agua_granja_vaca"
@@ -267,7 +298,9 @@
 
               <div class="row">
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Molino Arboles'"
+                  <ObtencionRecursoComponent :titulo="traslate('molinoArboles')"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-produccion="'assets/madera.png'"
                                              :produccion=" produccion_madera + produccion_madera_2 + produccion_madera_3"
                                              :src-consume="'assets/agua.png'"
@@ -276,7 +309,9 @@
                                              :otro-rercuso="false"></ObtencionRecursoComponent>
                 </div>
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Molino Madera'"
+                  <ObtencionRecursoComponent :titulo="traslate('molinoArboles')"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-produccion="'assets/carbon.png'"
                                              :produccion=" produccion_carbon"
                                              :src-consume="'assets/madera.png'"
@@ -285,7 +320,9 @@
                                              :otro-rercuso="false"></ObtencionRecursoComponent>
                 </div>
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Molino Maiz'"
+                  <ObtencionRecursoComponent :titulo="traslate('molinoMaiz')"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-produccion="'assets/bolsa_maiz.png'"
                                              :produccion=" produccion_bolsa_maiz"
                                              :src-consume="'assets/maiz.png'"
@@ -294,7 +331,9 @@
                                              :otro-rercuso="false"></ObtencionRecursoComponent>
                 </div>
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="'Molino Trigo'"
+                  <ObtencionRecursoComponent :titulo="traslate('molinoTrigo')"
+                                             :titulo-consumo="traslate('produccion')"
+                                             :titulo-produccion="traslate('consumo')"
                                              :src-produccion="'assets/bolsa_maiz.png'"
                                              :produccion=" produccion_bolsa_trigo"
                                              :src-consume="'assets/trigo.png'"
@@ -313,10 +352,18 @@
 
     <div class="row">
       <div class="col">
+        <h2 class="text-with-shadown">{{traslate('titleDatosCalcular')}} <button class="btn btn-with-background-small" @click="alerta(traslate('calcular'),traslate('infoDatosCalcula'))">?</button></h2>
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
 
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Pozo &nbsp &nbsp de &nbsp &nbsp Agua</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('pozoAgua').replace(/ /g, '&nbsp;')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_pozo_agua" role="switch">
@@ -334,21 +381,21 @@
               {{ option.nivel }}
             </option>
           </select>
-          <label for="floatingSelect">Nivel</label>
+          <label for="floatingSelect">{{traslate('level')}}</label>
         </div>
 
         <div class="form-floating mb-3 mt-3">
           <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"
                  :disabled="!checked_pozo_agua"
                  v-model="horas_pozo_agua">
-          <label for="floatingInput">Horas</label>
+          <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
       </div>
 
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Fabrica de Energia</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('fabricaEnegria')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_fabrica_energia" role="switch">
@@ -366,7 +413,7 @@
               {{ option.nivel }}
             </option>
           </select>
-          <label for="floatingSelect">Nivel</label>
+          <label for="floatingSelect">{{traslate('level')}}</label>
         </div>
 
 
@@ -374,14 +421,14 @@
           <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"
                  :disabled="!checked_fabrica_energia"
                  v-model="horas_fabrica_energia">
-          <label for="floatingInput">Horas</label>
+          <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
 
       </div>
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Granja de Gallinas</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('granjaGallinas')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_granja_gallinas" role="switch">
@@ -398,7 +445,7 @@
               {{ option.nivel }}
             </option>
           </select>
-          <label for="floatingSelect">Nivel</label>
+          <label for="floatingSelect">{{traslate('level')}}</label>
         </div>
 
         <div class="form-floating mb-3 mt-3">
@@ -406,7 +453,7 @@
                  :disabled="!checked_granja_gallinas"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Horas</label>
+          <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
 
 
@@ -415,7 +462,7 @@
 
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Granja &nbsp de &nbsp Vacas</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('granjaVacas').replace(/ /g, '&nbsp;')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_granja_vacas" role="switch">
@@ -433,7 +480,7 @@
               {{ option.nivel }}
             </option>
           </select>
-          <label for="floatingSelect">Nivel</label>
+          <label for="floatingSelect">{{traslate('level')}}</label>
         </div>
 
         <div class="form-floating mb-3 mt-3">
@@ -441,7 +488,7 @@
                  :disabled="!checked_granja_vacas"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Horas</label>
+          <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
 
 
@@ -451,7 +498,7 @@
     <div class="row">
       <div class="col">
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Tierra Trigo</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{ traslate('tierraTrigo') }}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_tierra_trigo_1" role="switch">
@@ -469,7 +516,7 @@
               {{ option.nivel }}
             </option>
           </select>
-          <label for="floatingSelect">Nivel</label>
+          <label for="floatingSelect">{{traslate('level')}}</label>
         </div>
 
 
@@ -478,14 +525,14 @@
                  :disabled="!checked_tierra_trigo_1"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Horas</label>
+          <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
 
 
       </div>
       <div class="col">
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Tierra Trigo</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('tierraTrigo')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_tierra_trigo_2" role="switch">
@@ -503,14 +550,14 @@
               {{ option.nivel }}
             </option>
           </select>
-          <label for="floatingSelect">Nivel</label>
+          <label for="floatingSelect">{{traslate('level')}}</label>
         </div>
         <div class="form-floating mb-3  mt-3">
           <input type="number" v-model="horas_tierra_trigo_2"
                  :disabled="!checked_tierra_trigo_2"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Horas</label>
+          <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
 
 
@@ -518,7 +565,7 @@
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Tierra Maiz</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{ traslate('tierraMaiz') }}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_tierra_maiz_1" role="switch">
@@ -535,21 +582,21 @@
               {{ option.nivel }}
             </option>
           </select>
-          <label for="floatingSelect">Nivel</label>
+          <label for="floatingSelect">{{traslate('level')}}</label>
         </div>
         <div class="form-floating mb-3  mt-3">
           <input type="number" v-model="horas_tierra_maiz"
                  :disabled="!checked_tierra_maiz_1"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Horas</label>
+          <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
 
 
       </div>
       <div class="col">
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Tierra Maiz</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{ traslate('tierraMaiz') }}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_tierra_maiz_2" role="switch">
@@ -565,14 +612,14 @@
               {{ option.nivel }}
             </option>
           </select>
-          <label for="floatingSelect">Nivel</label>
+          <label for="floatingSelect">{{traslate('level')}}</label>
         </div>
         <div class="form-floating mb-3  mt-3">
           <input type="number" v-model="horas_tierra_maiz_2"
                  :disabled="!checked_tierra_maiz_2"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Horas</label>
+          <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
       </div>
     </div>
@@ -581,7 +628,7 @@
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Arboles</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('arbolMadera')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_arboles_1" role="switch">
@@ -599,14 +646,14 @@
               {{ option.nivel }}
             </option>
           </select>
-          <label for="floatingSelect">Nivel</label>
+          <label for="floatingSelect">{{traslate('level')}}</label>
         </div>
         <div class="form-floating mb-3 mt-3">
           <input type="number" v-model="horas_arboles"
                  :disabled="!checked_arboles_1"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Horas</label>
+          <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
 
       </div>
@@ -614,7 +661,7 @@
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Arboles</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('arbolMadera')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_arboles_2" role="switch">
@@ -632,20 +679,20 @@
               {{ option.nivel }}
             </option>
           </select>
-          <label for="floatingSelect">Nivel</label>
+          <label for="floatingSelect">{{traslate('level')}}</label>
         </div>
         <div class="form-floating mb-3 mt-3">
           <input type="number" v-model="horas_arboles_2"
                  :disabled="!checked_arboles_2"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Horas</label>
+          <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
       </div>
 
       <div class="col">
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Arboles</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('arbolMadera')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_arboles_3" role="switch">
@@ -663,7 +710,7 @@
               {{ option.nivel }}
             </option>
           </select>
-          <label for="floatingSelect">Nivel</label>
+          <label for="floatingSelect">{{traslate('level')}}</label>
         </div>
 
         <div class="form-floating mb-3 mt-3">
@@ -671,19 +718,19 @@
                  :disabled="!checked_arboles_3"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Horas</label>
+          <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
 
       </div>
     </div>
 
     <div class="row text-center">
-      <h2 class="text-with-shadown">MOLINO</h2>
+      <h2 class="text-with-shadown">{{traslate('molino')}}</h2>
       <div class="col">
 
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Madera</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('madera')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_molino_madera" role="switch">
@@ -692,20 +739,20 @@
           </div>
         </div>
 
-        <label class="text-with-shadown">{{ molino.madera.tiempo }} horas</label>
+        <label class="text-with-shadown">{{ molino.madera.tiempo }} {{traslate('hour')}}</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_madera"
                  :disabled="!checked_molino_madera"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Cantidad</label>
+          <label for="floatingInput">{{traslate('cantidad')}}</label>
         </div>
       </div>
       <div class="col">
 
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Maiz</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('maiz')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_molino_maiz" role="switch">
@@ -713,19 +760,19 @@
             </div>
           </div>
         </div>
-        <label class="text-with-shadown">{{ molino.maiz.tiempo }} horas</label>
+        <label class="text-with-shadown">{{ molino.maiz.tiempo }} {{traslate('hour')}}</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_maiz"
                  :disabled="!checked_molino_maiz"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Cantidad</label>
+          <label for="floatingInput">{{traslate('cantidad')}}</label>
         </div>
       </div>
 
       <div class="col">
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Trigo</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('trigo')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_molino_trigo" role="switch">
@@ -734,20 +781,20 @@
           </div>
         </div>
 
-        <label class="text-with-shadown">{{ molino.trigo.tiempo }} horas</label>
+        <label class="text-with-shadown">{{ molino.trigo.tiempo }} {{traslate('hour')}}</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_trigo"
                  :disabled="!checked_molino_trigo"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Cantidad</label>
+          <label for="floatingInput">{{traslate('cantidad')}}</label>
         </div>
       </div>
 
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Leche</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('leche')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_molino_leche" role="switch">
@@ -755,19 +802,19 @@
             </div>
           </div>
         </div>
-        <label class="text-with-shadown">{{ molino.leche.tiempo }} horas</label>
+        <label class="text-with-shadown">{{ molino.leche.tiempo }} {{traslate('hour')}}</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_leche"
                  :disabled="!checked_molino_leche"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Cantidad</label>
+          <label for="floatingInput">{{traslate('cantidad')}}</label>
         </div>
       </div>
       <div class="col">
 
         <div class="d-flex bd-highlight ">
-          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>Huevo</h3></div>
+          <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('huevo')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" v-model="checked_molino_huevo" role="switch">
@@ -775,13 +822,13 @@
             </div>
           </div>
         </div>
-        <label class="text-with-shadown">{{ molino.huevo.tiempo }} horas</label>
+        <label class="text-with-shadown">{{ molino.huevo.tiempo }} {{traslate('hour')}}</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_huevo"
                  :disabled="!checked_molino_huevo"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
-          <label for="floatingInput">Cantidad</label>
+          <label for="floatingInput">{{traslate('cantidad')}}</label>
         </div>
       </div>
     </div>
@@ -792,9 +839,11 @@
 
 
 <script setup>
-import {ref, computed} from 'vue'
+import {ref, computed, onMounted, onBeforeUpdate} from 'vue'
 import RecursoComponent from "../components/RecursoComponent.vue";
 import ObtencionRecursoComponent from "../components/ObtencionRecursoComponent.vue";
+import en from "./en"
+import es from "./es"
 
 const pozo_agua = {
   nivel: {
@@ -1120,6 +1169,19 @@ const molino = {
   },
 }
 
+const idioma_escoje={
+  ES:es.data().es,
+  EN:en.data().en
+}
+let idioma=ref('EN');
+
+onMounted(()=>{
+  document.documentElement.lang=idioma.value.toLowerCase();
+})
+
+onBeforeUpdate(()=>{
+  document.documentElement.lang=idioma.value.toLowerCase();
+})
 
 let nivel_pozo_agua = ref(1);
 let horas_pozo_agua = ref(4);
@@ -1391,6 +1453,18 @@ function restar(a, b) {
   return a - b
 }
 
+function alerta(title,msg){
+  Swal.fire(
+      title,
+      msg,
+      'question'
+  )
+}
+
+function traslate(msg){
+  return idioma_escoje[idioma.value][msg];
+}
+
 
 
 </script>
@@ -1443,6 +1517,16 @@ body {
   color: white !important;
   font-weight: bold !important;
   padding: 1% 3% !important;
+}
+
+.btn-with-background-small {
+  background-image: url('../assets/button.png');
+  background-size: 100% 100%;
+  background-position: center center;
+  text-align: center !important;
+  color: white !important;
+  font-weight: bold !important;
+  padding: 0.5% 1% !important;
 }
 
 .boton-imagen {
