@@ -213,16 +213,16 @@
               <div class="row">
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('pozoAgua')" :src-produccion="'assets/agua.png'"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-consume="'assets/energia.png'" :produccion="produccion_agua"
                                              :consume2="0"
                                              :consume="requerimiento_energia_pozo"></ObtencionRecursoComponent>
                 </div>
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('fabricaEnegria')" :src-produccion="'assets/energia.png'"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-consume="'assets/carbon.png'" :produccion="produccion_energia"
                                              :consume2="0"
                                              :consume="requerimiento_carbon_fabrica"></ObtencionRecursoComponent>
@@ -230,8 +230,8 @@
 
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('molinoLeche')" :src-produccion="'assets/kod.png'"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-consume="'assets/leche.png'" :produccion="total_kod"
                                              :consume2="0"
                                              :consume="consumo_leche"></ObtencionRecursoComponent>
@@ -239,8 +239,8 @@
 
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('molinoHuevo')" :src-produccion="'assets/hueso.png'"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-consume="'assets/huevo.png'" :produccion="total_hueso"
                                              :consume2="0"
                                              :consume="consumo_huevo"></ObtencionRecursoComponent>
@@ -251,8 +251,8 @@
               <div class="row">
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('tierraTrigo')"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-produccion="'assets/trigo.png'" :src-consume="'assets/agua.png'"
                                              :produccion=" produccion_trigo + produccion_trigo_2"
                                              :consume="requerimiento_agua_tierra_trigo + requerimiento_agua_tierra_trigo_2"
@@ -262,8 +262,8 @@
                 </div>
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('tierraMaiz')"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-produccion="'assets/maiz.png'" :src-consume="'assets/agua.png'"
                                              :produccion="  produccion_maiz + produccion_maiz_2"
                                              :consume="requerimiento_agua_tierra_maiz + requerimiento_agua_tierra_maiz_2"
@@ -273,8 +273,8 @@
                 </div>
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('granjaGallinas')"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-produccion="'assets/huevo.png'" :src-consume="'assets/agua.png'"
                                              :produccion=" produccion_huevo"
                                              :consume="requerimiento_agua_granja_gallina"
@@ -284,8 +284,8 @@
                 </div>
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('granjaVacas')"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-produccion="'assets/leche.png'" :src-consume="'assets/agua.png'"
                                              :produccion=" produccion_leche"
                                              :consume="requerimiento_agua_granja_vaca"
@@ -299,8 +299,8 @@
               <div class="row">
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('molinoArboles')"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-produccion="'assets/madera.png'"
                                              :produccion=" produccion_madera + produccion_madera_2 + produccion_madera_3"
                                              :src-consume="'assets/agua.png'"
@@ -310,8 +310,8 @@
                 </div>
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('molinoArboles')"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-produccion="'assets/carbon.png'"
                                              :produccion=" produccion_carbon"
                                              :src-consume="'assets/madera.png'"
@@ -321,8 +321,8 @@
                 </div>
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('molinoMaiz')"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-produccion="'assets/bolsa_maiz.png'"
                                              :produccion=" produccion_bolsa_maiz"
                                              :src-consume="'assets/maiz.png'"
@@ -332,8 +332,8 @@
                 </div>
                 <div class="col-3">
                   <ObtencionRecursoComponent :titulo="traslate('molinoTrigo')"
-                                             :titulo-consumo="traslate('produccion')"
-                                             :titulo-produccion="traslate('consumo')"
+                                             :titulo-consumo="traslate('consumo')"
+                                             :titulo-produccion="traslate('produccion')"
                                              :src-produccion="'assets/bolsa_maiz.png'"
                                              :produccion=" produccion_bolsa_trigo"
                                              :src-consume="'assets/trigo.png'"
