@@ -13,7 +13,7 @@ export default {
                 calcularRecursos:"Calcular por Recursos",
                 ingresarRecursos:"Ingresar Recursos",
                 infoIngresarRecursos:`Necesitas activar la opción de   <strong>"calcular por recursos" </strong>, ingresa los recursos que tienes y activa que activos del juego quieres usar para el calcular 
-                que tanto puedes producir con respecto a tus recursos ingresados`,
+                que tanto puedes producir con respecto a tus recursos ingresados, solo podras calcular en base a 1 activo igual y no dos`,
                 estadisticas:"Estadistica",
                 infoStadistica:`Nos mostrara el resultado de lo que calculamos ya sea por tiempo o ingresando los recursos con respecto a los activos del juego a escoger, se mostraran todos los
                  recursos de CityFarm que hemos obtenido`,

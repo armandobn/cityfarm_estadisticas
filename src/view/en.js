@@ -12,7 +12,7 @@ export default {
                 calcularRecursos:"Calculate by Resources",
                 ingresarRecursos:"Enter Resources",
                 infoIngresarRecursos:`you need to activate the option to  <strong> "calculate by resources"</strong> , enter the resources you have and activate which game assets you want to use to calculate how much you can produce
-                 with respect to your entered resources`,
+                 with respect to your entered resources,You can only calculate based on 1 equal asset and not two`,
                 estadisticas:"Statistics",
                 infoStadistica:`It will show us the result of what we calculated either by time or by entering the resources with respect to the game assets to choose, it will show all the CityFarm resources 
                 that we have obtained`,
