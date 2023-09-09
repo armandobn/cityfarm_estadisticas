@@ -12,6 +12,14 @@
     <div class="row mt-4">
       <div class="col-md-4">
         <button class="btn btn-with-background" @click="calcular()">{{traslate('calcular')}}</button>
+        <div class="d-flex bd-highlight ">
+          <div class="p-2 bd-highlight text-with-shadown">{{traslate('calcularRecursos')}}</div>
+          <div class="p-2 bd-highlight">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" :value="calcular_recursos" v-model="calcular_recursos" @change="onChangeRecursos($event)" role="switch">
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col">
         <a class="btn btn-with-background" href="https://stream.hivelive.me/donate/misticogama"
@@ -34,54 +42,45 @@
     <div class="row  text-with-shadown">
       <div class="col">
         <RecursoComponent :src="'assets/energia.png'"
-                          :width="9"
-                          :cantidad="restar(total_energia, consumo_energia)"></RecursoComponent>
+                          :width="7"
+                          :cantidad="total_energia"></RecursoComponent>
         <RecursoComponent :src="'assets/agua.png'"
                           :width="10"
-                          :cantidad="restar(total_agua, consumo_agua)"></RecursoComponent>
+                          :cantidad="total_agua"></RecursoComponent>
         <RecursoComponent :src="'assets/madera.png'"
                           :width="10"
-                          :cantidad="restar(total_madera, consumo_madera)"></RecursoComponent>
+                          :cantidad="total_madera"></RecursoComponent>
         <RecursoComponent :src="'assets/carbon.png'"
                           :width="10"
-                          :cantidad="restar(total_carbon, consumo_carbon)"></RecursoComponent>
+                          :cantidad="total_carbon"></RecursoComponent>
       </div>
       <div class="col">
         <RecursoComponent :src="'assets/maiz.png'"
-                          :width="9"
-                          :cantidad="restar(total_maiz, consumo_maiz)"></RecursoComponent>
+                          :width="7"
+                          :cantidad="total_maiz"></RecursoComponent>
         <RecursoComponent :src="'assets/trigo.png'"
-                          :width="9"
-                          :cantidad="restar(total_trigo, consumo_trigo)"></RecursoComponent>
+                          :width="7"
+                          :cantidad="total_trigo"></RecursoComponent>
         <RecursoComponent :src="'assets/bolsa_maiz.png'"
-                          :width="9"
-                          :cantidad="restar(total_bolsa_maiz, consumo_bolsa_maiz)"></RecursoComponent>
+                          :width="8.9"
+                          :cantidad="total_bolsa_maiz"></RecursoComponent>
         <RecursoComponent :src="'assets/bolsa_trigo.png'"
-                          :width="9"
-                          :cantidad="restar(total_bolsa_trigo, consumo_bolsa_trigo)"></RecursoComponent>
+                          :width="8"
+                          :cantidad="total_bolsa_trigo"></RecursoComponent>
       </div>
       <div class="col">
         <RecursoComponent :src="'assets/leche.png'"
                           :width="10"
-                          :cantidad="restar(total_leche,consumo_leche)"></RecursoComponent>
+                          :cantidad="total_leche"></RecursoComponent>
         <RecursoComponent :src="'assets/huevo.png'"
                           :width="10"
-                          :cantidad="restar(total_huevo,consumo_huevo)"></RecursoComponent>
+                          :cantidad="total_huevo"></RecursoComponent>
         <RecursoComponent :src="'assets/kod.png'"
-                          :width="9"
+                          :width="7"
                           :cantidad="total_kod"></RecursoComponent>
         <RecursoComponent :src="'assets/hueso.png'"
-                          :width="9"
+                          :width="7"
                           :cantidad="total_hueso"></RecursoComponent>
-      </div>
-      <div class="col">
-        <RecursoComponent :src="'assets/semilla_trigo.png'"
-                          :width="10"
-                          :cantidad="consumo_semilla_trigo"></RecursoComponent>
-        <RecursoComponent :src="'assets/semilla_maiz.png'"
-                          :width="10"
-                          :cantidad="consumo_semilla_maiz"></RecursoComponent>
-
       </div>
     </div>
 
@@ -89,6 +88,12 @@
       <div class="col">
         <p>
 
+          <button class="btn btn-with-background" data-bs-toggle="collapse" href="#collapseDatosIniciales" role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample">
+            {{traslate('ingresarRecursos')}}
+          </button>
+          <button class="btn btn-with-background-small" @click="alerta(traslate('ingresarRecursos'),traslate('infoIngresarRecursos'))">?</button>
           <button class="btn btn-with-background" data-bs-toggle="collapse" href="#collapseExample" role="button"
                   aria-expanded="false"
                   aria-controls="collapseExample">
@@ -102,6 +107,110 @@
           </button>
           <button class="btn btn-with-background-small" @click="alerta(traslate('obtencionIndividual'),traslate('infoObtencionIndividual'))">?</button>
         </p>
+        <div class="collapse caja-cafe" id="collapseDatosIniciales">
+          <div class="card card-body relleno-cafe">
+            <div class="row">
+              <div class="col">
+
+                <div class="row">
+                  <div class="col">
+
+                    <div class="form-floating mb-3">
+                      <input type="number" v-model="inicial_energia"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/energia.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                      <input type="number"  v-model="inicial_agua"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/agua.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                      <input type="number" v-model="inicial_madera"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/madera.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                      <input type="number" v-model="inicial_carbon"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/carbon.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+
+
+                  </div>
+                  <div class="col">
+
+                    <div class="form-floating mb-3">
+                      <input type="number" v-model="inicial_maiz"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/maiz.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                      <input type="number" v-model="inicial_trigo"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/trigo.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                      <input type="number" v-model="inicial_bolsa_maiz"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/bolsa_maiz.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                      <input type="number" v-model="inicial_bolsa_trigo"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/bolsa_trigo.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+
+                  </div>
+                  <div class="col">
+
+                    <div class="form-floating mb-3">
+                      <input type="number" v-model="inicial_semilla_trigo"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/semilla_trigo.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="number" v-model="inicial_semilla_maiz"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/semilla_maiz.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="number" v-model="inicial_leche"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/leche.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="number" v-model="inicial_huevo"
+                             class="form-control" id="floatingInput"
+                             placeholder="name@example.com">
+                      <label for="floatingInput"><img  :src="'assets/huevo.png'"  v-bind:style="{'height':'100%'}" alt="" ></label>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
         <div class="collapse caja-cafe" id="collapseExample">
           <div class="card card-body relleno-cafe">
             <div class="row">
@@ -298,7 +407,7 @@
 
               <div class="row">
                 <div class="col-3">
-                  <ObtencionRecursoComponent :titulo="traslate('molinoArboles')"
+                  <ObtencionRecursoComponent :titulo="traslate('arbolMadera')"
                                              :titulo-consumo="traslate('consumo')"
                                              :titulo-produccion="traslate('produccion')"
                                              :src-produccion="'assets/madera.png'"
@@ -386,7 +495,7 @@
 
         <div class="form-floating mb-3 mt-3">
           <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"
-                 :disabled="!checked_pozo_agua"
+                 :disabled="calcular_recursos== true? true: !checked_pozo_agua"
                  v-model="horas_pozo_agua">
           <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
@@ -419,7 +528,7 @@
 
         <div class="form-floating mb-3 mt-3">
           <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"
-                 :disabled="!checked_fabrica_energia"
+                 :disabled="calcular_recursos== true? true: !checked_fabrica_energia"
                  v-model="horas_fabrica_energia">
           <label for="floatingInput">{{traslate('hour')}}</label>
         </div>
@@ -450,7 +559,7 @@
 
         <div class="form-floating mb-3 mt-3">
           <input type="number" v-model="horas_granja_gallina"
-                 :disabled="!checked_granja_gallinas"
+                 :disabled="calcular_recursos== true? true: !checked_granja_gallinas"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('hour')}}</label>
@@ -485,7 +594,7 @@
 
         <div class="form-floating mb-3 mt-3">
           <input type="number" v-model="horas_granja_vacas"
-                 :disabled="!checked_granja_vacas"
+                 :disabled="calcular_recursos== true? true: !checked_granja_vacas"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('hour')}}</label>
@@ -522,7 +631,7 @@
 
         <div class="form-floating mb-3 mt-3">
           <input type="number" v-model="horas_tierra_trigo"
-                 :disabled="!checked_tierra_trigo_1"
+                 :disabled="calcular_recursos== true? true: !checked_tierra_trigo_1"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('hour')}}</label>
@@ -535,7 +644,7 @@
           <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('tierraTrigo')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" v-model="checked_tierra_trigo_2" role="switch">
+              <input class="form-check-input" type="checkbox" :disabled="calcular_recursos" v-model="checked_tierra_trigo_2" role="switch">
               <label class="form-check-label" for=""></label>
             </div>
           </div>
@@ -543,7 +652,7 @@
 
 
         <div class="form-floating">
-          <select class="form-select" v-model="nivel_tierra_trigo_2" :disabled="!checked_tierra_trigo_2"
+          <select class="form-select" v-model="nivel_tierra_trigo_2" :disabled="calcular_recursos== true? true:!checked_tierra_trigo_2"
                   @change="onChange($event,'tierra_trigo_2')"
                   id="floatingSelect" aria-label="Floating label select example">
             <option v-for="option in tierra_trigo.nivel" v-bind:value="option.nivel">
@@ -554,7 +663,7 @@
         </div>
         <div class="form-floating mb-3  mt-3">
           <input type="number" v-model="horas_tierra_trigo_2"
-                 :disabled="!checked_tierra_trigo_2"
+                 :disabled="calcular_recursos== true? true: !checked_tierra_trigo_2"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('hour')}}</label>
@@ -586,7 +695,7 @@
         </div>
         <div class="form-floating mb-3  mt-3">
           <input type="number" v-model="horas_tierra_maiz"
-                 :disabled="!checked_tierra_maiz_1"
+                 :disabled="calcular_recursos== true? true: !checked_tierra_maiz_1"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('hour')}}</label>
@@ -599,13 +708,13 @@
           <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{ traslate('tierraMaiz') }}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" v-model="checked_tierra_maiz_2" role="switch">
+              <input class="form-check-input" type="checkbox" :disabled="calcular_recursos" v-model="checked_tierra_maiz_2" role="switch">
               <label class="form-check-label" for=""></label>
             </div>
           </div>
         </div>
         <div class="form-floating">
-          <select class="form-select" v-model="nivel_tierra_maiz_2" :disabled="!checked_tierra_maiz_2"
+          <select class="form-select" v-model="nivel_tierra_maiz_2" :disabled="calcular_recursos== true? true: !checked_tierra_maiz_2"
                   @change="onChange($event,'tierra_maiz_2')"
                   id="floatingSelect" aria-label="Floating label select example">
             <option v-for="option in tierra_maiz.nivel" v-bind:value="option.nivel">
@@ -616,7 +725,7 @@
         </div>
         <div class="form-floating mb-3  mt-3">
           <input type="number" v-model="horas_tierra_maiz_2"
-                 :disabled="!checked_tierra_maiz_2"
+                 :disabled="calcular_recursos== true? true: !checked_tierra_maiz_2"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('hour')}}</label>
@@ -650,7 +759,7 @@
         </div>
         <div class="form-floating mb-3 mt-3">
           <input type="number" v-model="horas_arboles"
-                 :disabled="!checked_arboles_1"
+                 :disabled="calcular_recursos== true? true: !checked_arboles_1"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('hour')}}</label>
@@ -664,14 +773,14 @@
           <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('arbolMadera')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" v-model="checked_arboles_2" role="switch">
+              <input class="form-check-input" type="checkbox" :disabled="calcular_recursos" v-model="checked_arboles_2" role="switch">
               <label class="form-check-label" for=""></label>
             </div>
           </div>
         </div>
 
         <div class="form-floating">
-          <select class="form-select" v-model="nivel_arboles_2" :disabled="!checked_arboles_2"
+          <select class="form-select" v-model="nivel_arboles_2" :disabled="calcular_recursos== true? true: !checked_arboles_2"
                   @change="onChange($event,'arboles_2')"
                   id="floatingSelect"
                   aria-label="Floating label select example">
@@ -683,7 +792,7 @@
         </div>
         <div class="form-floating mb-3 mt-3">
           <input type="number" v-model="horas_arboles_2"
-                 :disabled="!checked_arboles_2"
+                 :disabled="calcular_recursos== true? true: !checked_arboles_2"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('hour')}}</label>
@@ -695,14 +804,14 @@
           <div class="me-auto p-2 bd-highlight text-with-shadown"><h3>{{traslate('arbolMadera')}}</h3></div>
           <div class="p-2 bd-highlight">
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" v-model="checked_arboles_3" role="switch">
+              <input class="form-check-input" type="checkbox" :disabled="calcular_recursos" v-model="checked_arboles_3" role="switch">
               <label class="form-check-label" for=""></label>
             </div>
           </div>
         </div>
 
         <div class="form-floating">
-          <select class="form-select" v-model="nivel_arboles_3" :disabled="!checked_arboles_3"
+          <select class="form-select" v-model="nivel_arboles_3" :disabled="calcular_recursos== true? true:  !checked_arboles_3"
                   @change="onChange($event,'arboles_3')"
                   id="floatingSelect"
                   aria-label="Floating label select example">
@@ -715,7 +824,7 @@
 
         <div class="form-floating mb-3 mt-3">
           <input type="number" v-model="horas_arboles_3"
-                 :disabled="!checked_arboles_3"
+                 :disabled="calcular_recursos== true? true: !checked_arboles_3"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('hour')}}</label>
@@ -742,7 +851,7 @@
         <label class="text-with-shadown">{{ molino.madera.tiempo }} {{traslate('hour')}}</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_madera"
-                 :disabled="!checked_molino_madera"
+                 :disabled="calcular_recursos== true? true: !checked_molino_madera"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('cantidad')}}</label>
@@ -763,7 +872,7 @@
         <label class="text-with-shadown">{{ molino.maiz.tiempo }} {{traslate('hour')}}</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_maiz"
-                 :disabled="!checked_molino_maiz"
+                 :disabled="calcular_recursos== true? true: !checked_molino_maiz"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('cantidad')}}</label>
@@ -784,7 +893,7 @@
         <label class="text-with-shadown">{{ molino.trigo.tiempo }} {{traslate('hour')}}</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_trigo"
-                 :disabled="!checked_molino_trigo"
+                 :disabled="calcular_recursos== true? true: !checked_molino_trigo"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('cantidad')}}</label>
@@ -805,7 +914,7 @@
         <label class="text-with-shadown">{{ molino.leche.tiempo }} {{traslate('hour')}}</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_leche"
-                 :disabled="!checked_molino_leche"
+                 :disabled="calcular_recursos== true? true: !checked_molino_leche"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('cantidad')}}</label>
@@ -825,7 +934,7 @@
         <label class="text-with-shadown">{{ molino.huevo.tiempo }} {{traslate('hour')}}</label>
         <div class="form-floating mb-3">
           <input type="number" v-model="molino_cant_huevo"
-                 :disabled="!checked_molino_huevo"
+                 :disabled="calcular_recursos== true? true: !checked_molino_huevo"
                  class="form-control" id="floatingInput"
                  placeholder="name@example.com">
           <label for="floatingInput">{{traslate('cantidad')}}</label>
@@ -1272,6 +1381,18 @@ let total_carbon = ref(0)
 let total_kod = ref(0)
 let total_hueso = ref(0)
 
+let inicial_energia = ref(0)
+let inicial_agua = ref(0)
+let inicial_semilla_maiz = ref(0)
+let inicial_semilla_trigo = ref(0)
+let inicial_maiz = ref(0)
+let inicial_trigo = ref(0)
+let inicial_bolsa_maiz = ref(0)
+let inicial_bolsa_trigo = ref(0)
+let inicial_leche = ref(0)
+let inicial_huevo = ref(0)
+let inicial_madera = ref(0)
+let inicial_carbon = ref(0)
 
 let consumo_energia = ref(0)
 let consumo_agua = ref(0)
@@ -1303,20 +1424,52 @@ let checked_molino_trigo = ref(false);
 let checked_molino_leche = ref(false);
 let checked_molino_huevo = ref(false);
 
+let calcular_recursos = ref(false);
+
 function calcular() {
 
+  let recursos_inicial_agua=inicial_agua.value;
+
   let agua = pozo_agua.nivel[nivel_pozo_agua.value];
-  produccion_agua.value = (horas_pozo_agua.value <= 0 || !checked_pozo_agua.value) ? 0 : parseFloat(horas_pozo_agua.value) / (agua.tiempo * agua.produccion)
-  requerimiento_energia_pozo.value = (horas_pozo_agua.value <= 0 || !checked_pozo_agua.value) ? 0 : parseFloat(horas_pozo_agua.value) / (agua.tiempo * agua.requerimiento.energia)
+  if(calcular_recursos.value && checked_pozo_agua.value){
+    requerimiento_energia_pozo.value=inicial_energia.value;
+    produccion_agua.value=inicial_energia.value/agua.requerimiento.energia;
+    horas_pozo_agua.value=agua.tiempo*(inicial_energia.value/agua.requerimiento.energia);
+  }else{
+    produccion_agua.value = (horas_pozo_agua.value <= 0 || !checked_pozo_agua.value) ? 0 : parseFloat(horas_pozo_agua.value) / (agua.tiempo * agua.produccion)
+    requerimiento_energia_pozo.value = (horas_pozo_agua.value <= 0 || !checked_pozo_agua.value) ? 0 : parseFloat(horas_pozo_agua.value) / (agua.tiempo * agua.requerimiento.energia)
+  }
 
   let energia = fabrica_energia.nivel[nivel_fabrica_energia.value];
-  produccion_energia.value = (horas_fabrica_energia.value <= 0 || !checked_fabrica_energia.value) ? 0 : parseFloat(horas_fabrica_energia.value) / (energia.tiempo / energia.produccion)
-  requerimiento_carbon_fabrica.value = (horas_fabrica_energia.value <= 0 || !checked_fabrica_energia.value) ? 0 : parseFloat(horas_fabrica_energia.value) / (energia.tiempo / energia.requerimiento.carbon)
+  if(calcular_recursos.value && checked_fabrica_energia.value){
+    requerimiento_carbon_fabrica.value=inicial_carbon.value;
+    produccion_energia.value=inicial_carbon.value/energia.requerimiento.carbon;
+    horas_fabrica_energia.value=energia.tiempo*(inicial_carbon.value/energia.requerimiento.carbon);
+  }else{
+    produccion_energia.value = (horas_fabrica_energia.value <= 0 || !checked_fabrica_energia.value) ? 0 : parseFloat(horas_fabrica_energia.value) / (energia.tiempo / energia.produccion)
+    requerimiento_carbon_fabrica.value = (horas_fabrica_energia.value <= 0 || !checked_fabrica_energia.value) ? 0 : parseFloat(horas_fabrica_energia.value) / (energia.tiempo / energia.requerimiento.carbon)
+  }
 
   let maiz = tierra_maiz.nivel[nivel_tierra_maiz.value];
-  produccion_maiz.value = (horas_tierra_maiz.value <= 0 || !checked_tierra_maiz_1.value) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.produccion)
-  requerimiento_semilla_maiz_tierra_maiz.value = (horas_tierra_maiz.value <= 0 || !checked_tierra_maiz_1.value) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.requerimiento.semilla_maiz)
-  requerimiento_agua_tierra_maiz.value = (horas_tierra_maiz.value <= 0 || !checked_tierra_maiz_1.value) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.requerimiento.agua)
+  if(calcular_recursos.value && checked_tierra_maiz_1.value){
+    let ciclos_completos_agua=0;
+    let ciclos_completos_semilla=0;
+    ciclos_completos_agua=(recursos_inicial_agua/maiz.requerimiento.agua);
+    ciclos_completos_semilla=(inicial_semilla_maiz.value/maiz.requerimiento.semilla_maiz);
+
+    requerimiento_semilla_maiz_tierra_maiz.value= Math.min(ciclos_completos_semilla, ciclos_completos_agua) * maiz.requerimiento.semilla_maiz;
+    requerimiento_agua_tierra_maiz.value= Math.min(ciclos_completos_semilla, ciclos_completos_agua) * maiz.requerimiento.agua;
+
+
+    recursos_inicial_agua-= (Math.min(ciclos_completos_semilla, ciclos_completos_agua)*maiz.requerimiento.agua);
+
+    produccion_maiz.value=maiz.produccion * (Math.min(ciclos_completos_semilla, ciclos_completos_agua));
+    horas_tierra_maiz.value=maiz.tiempo*Math.min(ciclos_completos_semilla, ciclos_completos_agua);
+  }else {
+    produccion_maiz.value = (horas_tierra_maiz.value <= 0 || !checked_tierra_maiz_1.value) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.produccion)
+    requerimiento_semilla_maiz_tierra_maiz.value = (horas_tierra_maiz.value <= 0 || !checked_tierra_maiz_1.value) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.requerimiento.semilla_maiz)
+    requerimiento_agua_tierra_maiz.value = (horas_tierra_maiz.value <= 0 || !checked_tierra_maiz_1.value) ? 0 : parseFloat(horas_tierra_maiz.value) / (maiz.tiempo / maiz.requerimiento.agua)
+  }
 
   let maiz_2 = tierra_maiz.nivel[nivel_tierra_maiz_2.value];
   produccion_maiz_2.value = (horas_tierra_maiz_2.value <= 0 || !checked_tierra_maiz_2.value) ? 0 : parseFloat(horas_tierra_maiz_2.value) / (maiz_2.tiempo / maiz_2.produccion)
@@ -1324,9 +1477,26 @@ function calcular() {
   requerimiento_agua_tierra_maiz_2.value = (horas_tierra_maiz_2.value <= 0 || !checked_tierra_maiz_2.value) ? 0 : parseFloat(horas_tierra_maiz_2.value) / (maiz_2.tiempo / maiz_2.requerimiento.agua)
 
   let trigo = tierra_trigo.nivel[nivel_tierra_trigo.value];
-  produccion_trigo.value = (horas_tierra_trigo.value <= 0 || !checked_tierra_trigo_1.value) ? 0 : parseFloat(horas_tierra_trigo.value) / (trigo.tiempo / trigo.produccion)
-  requerimiento_semilla_trigo_tierra_trigo.value = (horas_tierra_trigo.value <= 0 || !checked_tierra_trigo_1.value) ? 0 : parseFloat(horas_tierra_trigo.value) / (trigo.tiempo / trigo.requerimiento.semilla_trigo)
-  requerimiento_agua_tierra_trigo.value = (horas_tierra_trigo.value <= 0 || !checked_tierra_trigo_1.value) ? 0 : parseFloat(horas_tierra_trigo.value) / (trigo.tiempo / trigo.requerimiento.agua)
+  if(calcular_recursos.value && checked_tierra_trigo_1.value){
+
+
+    let ciclos_completos_agua=0;
+    let ciclos_completos_semilla=0;
+    ciclos_completos_agua=(recursos_inicial_agua/trigo.requerimiento.agua);
+    ciclos_completos_semilla=(inicial_semilla_trigo.value/trigo.requerimiento.semilla_trigo);
+
+    requerimiento_semilla_trigo_tierra_trigo.value= (Math.min(ciclos_completos_semilla, ciclos_completos_agua)) * trigo.requerimiento.semilla_trigo;
+    requerimiento_agua_tierra_trigo.value= (Math.min(ciclos_completos_semilla, ciclos_completos_agua)) * trigo.requerimiento.agua;
+
+    recursos_inicial_agua-= (Math.min(ciclos_completos_semilla, ciclos_completos_agua)*maiz.requerimiento.agua);
+
+    produccion_trigo.value=trigo.produccion *(Math.min(ciclos_completos_semilla, ciclos_completos_agua));
+    horas_tierra_trigo.value=trigo.tiempo*(Math.min(ciclos_completos_semilla, ciclos_completos_agua));
+  }else {
+    produccion_trigo.value = (horas_tierra_trigo.value <= 0 || !checked_tierra_trigo_1.value) ? 0 : parseFloat(horas_tierra_trigo.value) / (trigo.tiempo / trigo.produccion)
+    requerimiento_semilla_trigo_tierra_trigo.value = (horas_tierra_trigo.value <= 0 || !checked_tierra_trigo_1.value) ? 0 : parseFloat(horas_tierra_trigo.value) / (trigo.tiempo / trigo.requerimiento.semilla_trigo)
+    requerimiento_agua_tierra_trigo.value = (horas_tierra_trigo.value <= 0 || !checked_tierra_trigo_1.value) ? 0 : parseFloat(horas_tierra_trigo.value) / (trigo.tiempo / trigo.requerimiento.agua)
+  }
 
   let trigo_2 = tierra_trigo.nivel[nivel_tierra_trigo_2.value];
   produccion_trigo_2.value = (horas_tierra_trigo_2.value <= 0 || !checked_tierra_trigo_2.value) ? 0 : parseFloat(horas_tierra_trigo_2.value) / (trigo_2.tiempo / trigo_2.produccion)
@@ -1335,18 +1505,59 @@ function calcular() {
 
 
   let huevo = granja_gallinas.nivel[nivel_granja_gallina.value];
-  produccion_huevo.value = (horas_granja_gallina.value <= 0 || !checked_granja_gallinas.value) ? 0 : parseFloat(horas_granja_gallina.value) / (huevo.tiempo / huevo.produccion)
-  requerimiento_bolsa_maiz_granja_gallina.value = (horas_granja_gallina.value <= 0 || !checked_granja_gallinas.value) ? 0 : parseFloat(horas_granja_gallina.value) / (huevo.tiempo / huevo.requerimiento.bolsa_maiz)
-  requerimiento_agua_granja_gallina.value = (horas_granja_gallina.value <= 0 || !checked_granja_gallinas.value) ? 0 : parseFloat(horas_granja_gallina.value) / (huevo.tiempo / huevo.requerimiento.agua)
+  if(calcular_recursos.value && checked_granja_gallinas.value){
+
+    let ciclos_completos_agua=0;
+    let ciclos_completos_semilla=0;
+    ciclos_completos_agua=(inicial_agua.value/huevo.requerimiento.agua);
+    ciclos_completos_semilla=(inicial_bolsa_maiz.value/huevo.requerimiento.bolsa_maiz);
+
+    requerimiento_bolsa_maiz_granja_gallina.value=(Math.min(ciclos_completos_semilla, ciclos_completos_agua))* huevo.requerimiento.bolsa_maiz;
+    requerimiento_agua_granja_gallina.value=(Math.min(ciclos_completos_semilla, ciclos_completos_agua))* huevo.requerimiento.agua;
+
+    recursos_inicial_agua-= (Math.min(ciclos_completos_semilla, ciclos_completos_agua)*huevo.requerimiento.agua);
+
+    produccion_huevo.value=huevo.produccion *(Math.min(ciclos_completos_semilla, ciclos_completos_agua));
+    horas_granja_gallina.value=huevo.tiempo*(Math.min(ciclos_completos_semilla, ciclos_completos_agua));
+  }else {
+    produccion_huevo.value = (horas_granja_gallina.value <= 0 || !checked_granja_gallinas.value) ? 0 : parseFloat(horas_granja_gallina.value) / (huevo.tiempo / huevo.produccion)
+    requerimiento_bolsa_maiz_granja_gallina.value = (horas_granja_gallina.value <= 0 || !checked_granja_gallinas.value) ? 0 : parseFloat(horas_granja_gallina.value) / (huevo.tiempo / huevo.requerimiento.bolsa_maiz)
+    requerimiento_agua_granja_gallina.value = (horas_granja_gallina.value <= 0 || !checked_granja_gallinas.value) ? 0 : parseFloat(horas_granja_gallina.value) / (huevo.tiempo / huevo.requerimiento.agua)
+  }
 
   let leche = granja_vacas.nivel[nivel_granja_vacas.value];
-  produccion_leche.value = (horas_granja_vacas.value <= 0 || !checked_granja_vacas.value) ? 0 : parseFloat(horas_granja_vacas.value) / (leche.tiempo / leche.produccion)
-  requerimiento_bolsa_trigo_granja_vaca.value = (horas_granja_vacas.value <= 0 || !checked_granja_vacas.value) ? 0 : parseFloat(horas_granja_vacas.value) / (leche.tiempo / leche.requerimiento.bolsa_trigo)
-  requerimiento_agua_granja_vaca.value = (horas_granja_vacas.value <= 0 || !checked_granja_vacas.value) ? 0 : parseFloat(horas_granja_vacas.value) / (leche.tiempo / leche.requerimiento.agua)
+  if(calcular_recursos.value && checked_granja_vacas.value){
+
+    let ciclos_completos_agua=0;
+    let ciclos_completos_semilla=0;
+    ciclos_completos_agua=(inicial_agua.value/leche.requerimiento.agua);
+    ciclos_completos_semilla=(inicial_bolsa_trigo.value/leche.requerimiento.bolsa_trigo);
+
+    requerimiento_bolsa_trigo_granja_vaca.value=(Math.min(ciclos_completos_semilla, ciclos_completos_agua))*leche.requerimiento.bolsa_trigo;
+    requerimiento_agua_granja_vaca.value=(Math.min(ciclos_completos_semilla, ciclos_completos_agua))*leche.requerimiento.agua;
+
+    recursos_inicial_agua-= (Math.min(ciclos_completos_semilla, ciclos_completos_agua)*leche.requerimiento.agua);
+
+    produccion_leche.value=leche.produccion *(Math.min(ciclos_completos_semilla, ciclos_completos_agua));
+    horas_granja_vacas.value=leche.tiempo*(Math.min(ciclos_completos_semilla, ciclos_completos_agua));
+  }else {
+    produccion_leche.value = (horas_granja_vacas.value <= 0 || !checked_granja_vacas.value) ? 0 : parseFloat(horas_granja_vacas.value) / (leche.tiempo / leche.produccion)
+    requerimiento_bolsa_trigo_granja_vaca.value = (horas_granja_vacas.value <= 0 || !checked_granja_vacas.value) ? 0 : parseFloat(horas_granja_vacas.value) / (leche.tiempo / leche.requerimiento.bolsa_trigo)
+    requerimiento_agua_granja_vaca.value = (horas_granja_vacas.value <= 0 || !checked_granja_vacas.value) ? 0 : parseFloat(horas_granja_vacas.value) / (leche.tiempo / leche.requerimiento.agua)
+  }
 
   let madera = arboles.nivel[nivel_arboles.value];
-  produccion_madera.value = (horas_arboles.value <= 0 || !checked_arboles_1.value) ? 0 : parseFloat(horas_arboles.value) / (madera.tiempo / madera.produccion)
-  requerimiento_agua_arboles.value = (horas_arboles.value <= 0 || !checked_arboles_1.value) ? 0 : parseFloat(horas_arboles.value) / (madera.tiempo / madera.requerimiento.agua)
+  if(calcular_recursos.value && checked_arboles_1.value){
+    requerimiento_agua_arboles.value= (inicial_agua.value/madera.requerimiento.agua) * madera.requerimiento.agua;
+
+    recursos_inicial_agua-= (inicial_agua.value/madera.requerimiento.agua) * madera.requerimiento.agua;
+
+    produccion_madera.value=madera.produccion *(inicial_agua.value/madera.requerimiento.agua);
+    horas_arboles.value=madera.tiempo*(inicial_agua.value/madera.requerimiento.agua);
+  }else {
+    produccion_madera.value = (horas_arboles.value <= 0 || !checked_arboles_1.value) ? 0 : parseFloat(horas_arboles.value) / (madera.tiempo / madera.produccion)
+    requerimiento_agua_arboles.value = (horas_arboles.value <= 0 || !checked_arboles_1.value) ? 0 : parseFloat(horas_arboles.value) / (madera.tiempo / madera.requerimiento.agua)
+  }
 
   let madera_2 = arboles.nivel[nivel_arboles_2.value];
   produccion_madera_2.value = (horas_arboles_2.value <= 0 || !checked_arboles_2.value) ? 0 : parseFloat(horas_arboles_2.value) / (madera_2.tiempo / madera_2.produccion)
@@ -1357,24 +1568,49 @@ function calcular() {
   requerimiento_agua_arboles_3.value = (horas_arboles_3.value <= 0 || !checked_arboles_3.value) ? 0 : parseFloat(horas_arboles_3.value) / (madera_3.tiempo / madera_3.requerimiento.agua)
 
   let carbon = molino.madera;
-  produccion_carbon.value = (!checked_molino_madera.value) ? 0 : carbon.ratio * molino_cant_madera.value;
-  molino_cant_madera.value = (!checked_molino_madera.value) ? 0 : molino_cant_madera.value;
+  if(calcular_recursos.value && checked_molino_madera.value){
+    produccion_carbon.value = (!checked_molino_madera.value) ? 0 : carbon.ratio * inicial_madera.value;
+    molino_cant_madera.value = (!checked_molino_madera.value) ? 0 : inicial_madera.value;
+  }else {
+    produccion_carbon.value = (!checked_molino_madera.value) ? 0 : carbon.ratio * molino_cant_madera.value;
+    molino_cant_madera.value = (!checked_molino_madera.value) ? 0 : molino_cant_madera.value;
+  }
 
   let bolsa_maiz = molino.maiz;
-  produccion_bolsa_maiz.value = (!checked_molino_maiz.value) ? 0 : bolsa_maiz.ratio * molino_cant_maiz.value;
-  molino_cant_maiz.value = (!checked_molino_maiz.value) ? 0 : molino_cant_maiz.value;
+  if(calcular_recursos.value && checked_molino_maiz.value){
+    produccion_bolsa_maiz.value = (!checked_molino_maiz.value) ? 0 : bolsa_maiz.ratio * inicial_maiz.value;
+    molino_cant_maiz.value = (!checked_molino_maiz.value) ? 0 : inicial_maiz.value;
+  }else {
+    produccion_bolsa_maiz.value = (!checked_molino_maiz.value) ? 0 : bolsa_maiz.ratio * molino_cant_maiz.value;
+    molino_cant_maiz.value = (!checked_molino_maiz.value) ? 0 : molino_cant_maiz.value;
+  }
 
   let bolsa_trigo = molino.trigo;
-  produccion_bolsa_trigo.value = (!checked_molino_trigo.value) ? 0 : bolsa_trigo.ratio * molino_cant_trigo.value;
-  molino_cant_trigo.value = (!checked_molino_trigo.value) ? 0 : molino_cant_trigo.value;
+  if(calcular_recursos.value && checked_molino_trigo.value){
+    produccion_bolsa_trigo.value = (!checked_molino_trigo.value) ? 0 : bolsa_trigo.ratio * inicial_trigo.value;
+    molino_cant_trigo.value = (!checked_molino_trigo.value) ? 0 : inicial_trigo.value;
+  }else {
+    produccion_bolsa_trigo.value = (!checked_molino_trigo.value) ? 0 : bolsa_trigo.ratio * molino_cant_trigo.value;
+    molino_cant_trigo.value = (!checked_molino_trigo.value) ? 0 : molino_cant_trigo.value;
+  }
 
   let kod = molino.leche;
-  produccion_kod.value = (!checked_molino_leche.value) ? 0 : kod.ratio * molino_cant_leche.value;
-  molino_cant_leche.value = (!checked_molino_leche.value) ? 0 : molino_cant_leche.value;
+  if(calcular_recursos.value && checked_molino_leche.value){
+    produccion_kod.value = (!checked_molino_leche.value) ? 0 : kod.ratio * inicial_leche.value;
+    molino_cant_leche.value = (!checked_molino_leche.value) ? 0 : inicial_leche.value;
+  }else {
+    produccion_kod.value = (!checked_molino_leche.value) ? 0 : kod.ratio * molino_cant_leche.value;
+    molino_cant_leche.value = (!checked_molino_leche.value) ? 0 : molino_cant_leche.value;
+  }
 
   let hueso = molino.huevo;
-  produccion_hueso.value = (!checked_molino_huevo.value) ? 0 : hueso.ratio * molino_cant_huevo.value;
-  molino_cant_huevo.value = (!checked_molino_huevo.value) ? 0 : molino_cant_huevo.value;
+  if(calcular_recursos.value && checked_molino_huevo.value){
+    produccion_hueso.value = (!checked_molino_huevo.value) ? 0 : hueso.ratio * inicial_huevo.value;
+    molino_cant_huevo.value = (!checked_molino_huevo.value) ? 0 : inicial_huevo.value;
+  }else {
+    produccion_hueso.value = (!checked_molino_huevo.value) ? 0 : hueso.ratio * molino_cant_huevo.value;
+    molino_cant_huevo.value = (!checked_molino_huevo.value) ? 0 : molino_cant_huevo.value;
+  }
 
   total_energia.value = produccion_energia.value;
   total_agua.value = produccion_agua.value;
@@ -1406,6 +1642,11 @@ function calcular() {
   consumo_huevo.value = molino_cant_huevo.value;
 
 }
+
+function onChangeRecursos(event) {
+  checked_arboles_2.value=checked_arboles_3.value=checked_tierra_trigo_2.value=checked_tierra_maiz_2.value=!event.target.value;
+}
+
 
 function onChange(event, tipo) {
 

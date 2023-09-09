@@ -10,9 +10,13 @@ export default {
                     `,
                 donacion:"Donaciones",
                 calcular:"Calcular",
+                calcularRecursos:"Calcular por Recursos",
+                ingresarRecursos:"Ingresar Recursos",
+                infoIngresarRecursos:`Necesitas activar la opción de   <strong>"calcular por recursos" </strong>, ingresa los recursos que tienes y activa que activos del juego quieres usar para el calcular 
+                que tanto puedes producir con respecto a tus recursos ingresados`,
                 estadisticas:"Estadistica",
-                infoStadistica:`Nos mostrara el resultado de lo que calculamos, si vemos los numeros en rojo significa estamos perdiendo mas recursos de lo que obtenemos, se mostraran
-                todos los recursos de CityFarm`,
+                infoStadistica:`Nos mostrara el resultado de lo que calculamos ya sea por tiempo o ingresando los recursos con respecto a los activos del juego a escoger, se mostraran todos los
+                 recursos de CityFarm que hemos obtenido`,
                 produccionTotal:"Producción Total",
                 infoProduccionTotal:`Nos mostrara divido en genreal los recuros en dos secciones:<br><br>
                                          <strong> Producción Total:</strong><br>

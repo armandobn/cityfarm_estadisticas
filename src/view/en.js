@@ -9,9 +9,13 @@ export default {
                      with the exception of the Mill that will show the minimum amount`,
                 donacion:"Donations",
                 calcular:"Calculate",
+                calcularRecursos:"Calculate by Resources",
+                ingresarRecursos:"Enter Resources",
+                infoIngresarRecursos:`you need to activate the option to  <strong> "calculate by resources"</strong> , enter the resources you have and activate which game assets you want to use to calculate how much you can produce
+                 with respect to your entered resources`,
                 estadisticas:"Statistics",
-                infoStadistica:`It will show us the result of what we calculated, if we see the numbers in red it means we are losing more resources than we get, they will be displayed
-                 all CityFarm resources`,
+                infoStadistica:`It will show us the result of what we calculated either by time or by entering the resources with respect to the game assets to choose, it will show all the CityFarm resources 
+                that we have obtained`,
                 produccionTotal:"Total Production",
                 infoProduccionTotal:`It will show us divided in general the resources in two sections:<br><br>
                                           <strong>Total Production:</strong><br>
