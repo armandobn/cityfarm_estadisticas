@@ -977,7 +977,7 @@ const pozo_agua = {
     3: {
       nivel: 3,
       produccion: 1,
-      tiempo: 2,
+      tiempo: 1.11,
       requerimiento: {
         energia: 1,
       },
@@ -986,7 +986,7 @@ const pozo_agua = {
     4: {
       nivel: 4,
       produccion: 1,
-      tiempo: 1,
+      tiempo: 0.51,
       requerimiento: {
         energia: 1,
       },
@@ -1018,7 +1018,7 @@ const fabrica_energia = {
     3: {
       nivel: 3,
       produccion: 1,
-      tiempo: 2,
+      tiempo: 1.11,
       requerimiento: {
         carbon: 2,
       },
@@ -1027,7 +1027,7 @@ const fabrica_energia = {
     4: {
       nivel: 4,
       produccion: 1,
-      tiempo: 1,
+      tiempo: 0.51,
       requerimiento: {
         carbon: 2,
       },
